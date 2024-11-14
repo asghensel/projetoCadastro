@@ -1,0 +1,14 @@
+#usado {
+    background-color: rgb(0, 153, 255);
+    color: pink;
+}
+#nao{
+    background-color: rgb(255, 97, 97);
+    color: purple;
+}
+
+.col-md-1{
+    text-align: center;
+    margin: 5px;
+}
+
