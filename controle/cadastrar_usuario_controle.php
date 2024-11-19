@@ -16,7 +16,7 @@ $query= "
                     dataCadastro)values(
                     '".$nome."',
                     '".$usuario."',
-                    '".$senha."',
+                    '".$crip."',
                     '".$turma."',
                     NOW()
                                 )

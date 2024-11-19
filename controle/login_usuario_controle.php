@@ -16,7 +16,7 @@ $sql="Select
 
 
 $result = mysqli_query($conexao, $sql) or die(false);
-$dados = $result->fetch_all(MYSQLI_ASSOC);
+$dados = $result->fetch_assoc();
 
 if($dados['quantidade']>0){
     echo 'login permitido';
