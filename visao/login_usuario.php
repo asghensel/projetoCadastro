@@ -1,10 +1,10 @@
 <?php
 session_start();
 if(isset($_GET['erro']) && $_GET['erro'] =='acesso_negado'){
-  echo "<script>alert('Usuario não autenticado'); </script>"
+  echo "<script>alert('Usuario não autenticado'); </script>";
 }
 
-include_once('../modelo/conexao.php')
+include_once('../modelo/conexao.php');
 include_once('cabecalho.php');
 
 ?>
