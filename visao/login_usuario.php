@@ -3,6 +3,9 @@ session_start();
 if(isset($_GET['erro']) && $_GET['erro'] =='acesso_negado'){
   echo "<script>alert('Usuario não autenticado'); </script>";
 }
+if(isset($_GET['error_auten']) && $_GET['error-auten']=='s'){
+  echo "<script>alert('Senha ou usuario invalido!');</script>";
+}
 
 include_once('../modelo/conexao.php');
 include_once('cabecalho.php');

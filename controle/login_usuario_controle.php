@@ -26,7 +26,7 @@ if($dados['quantidade']>0){
 }else{
     $_SESSION['login_ok']=false;
     unset($_SESSION['controle_login']);
-    header('location:../visao/login_usuario.php');
+    header('location:../visao/login_usuario.php?error_auten=s');
 }
 
 
