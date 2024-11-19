@@ -3,17 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/menu.css">
+    <title>Navbar com Submenu</title>
     <script src="../js/menu.js"></script>
-    <title>Menu</title>
+    <link rel="stylesheet" href="../css/menu.css">
 </head>
 <body>
     <nav>
         <ul>
-            <li><a href="index.html">Início</a></li>
-            <li><a href="sobre.html">Sobre</a></li>
-            <li><a href="contato.html">Contato</a></li>
-        </ul>
-    </nav>
+    <div class="navbar">
+        <li><div class="navbar-item" data-menu="menu1">
+            Início
+           
+        </div></li>
+
+        <li><div class="navbar-item" data-menu="menu2">
+            Usuarios
+            <div class="submenu">
+                <a href="#">Cadastrar</a>
+                <a href="#">Listagem</a>
+            </div>
+        </div></li>
+
+        <li><div class="navbar-item" data-menu="menu3">
+            Ativos
+            </div></li>
+        
+        <li><div class="navbar-item" data-menu="menu4">
+            Movimentação
+        </div></li>
+    </ul>
+</nav>
+    
 </body>
 </html>
