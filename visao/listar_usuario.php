@@ -2,7 +2,7 @@
 include_once('../modelo/conexao.php');
 include_once('../controle/funcoes.php');
 
-$info_bd = busca_info_bd($conexao,'usuario','idUsuario',1);
+$info_bd = busca_info_bd($conexao,'usuario');
 include_once('cabecalho.php');
 ?>
 

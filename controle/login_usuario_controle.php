@@ -1,4 +1,5 @@
 <?php
+session_start();
 include_once('../modelo/conexao.php');
 include_once('../controle/funcoes.php');
 
@@ -19,9 +20,13 @@ $result = mysqli_query($conexao, $sql) or die(false);
 $dados = $result->fetch_assoc();
 
 if($dados['quantidade']>0){
-    echo 'login permitido';
+    $_SESSION['login_ok']=true;
+    $_SESSION['controle_login']=true;
+    header('location:../visao/listar_usuario.php');
 }else{
-    echo 'senha ou usuario invalido';
+    $_SESSION['login_ok']=false;
+    unset($_SESSION['controle_login']);
+    header('location:../visao/login_usuario.php');
 }
 
 
