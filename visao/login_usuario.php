@@ -3,7 +3,7 @@ session_start();
 if(isset($_GET['erro']) && $_GET['erro'] =='acesso_negado'){
   echo "<script>alert('Usuario não autenticado'); </script>";
 }
-if(isset($_GET['error_auten']) && $_GET['error-auten']=='s'){
+if(isset($_GET['error_auten']) && $_GET['error_auten']=='s'){
   echo "<script>alert('Senha ou usuario invalido!');</script>";
 }
 
