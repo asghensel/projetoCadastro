@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,8 +19,8 @@
         <li><div class="navbar-item" data-menu="menu2">
             Usuarios
             <div class="submenu">
-                <a href="#">Cadastrar</a>
-                <a href="#">Listagem</a>
+                <a href="cadastrarusuario.php">Cadastrar</a>
+                <a href="listar_usuario.php">Listagem</a>
             </div>
         </div></li>
 
@@ -33,6 +33,5 @@
         </div></li>
     </ul>
 </nav>
-    
 </body>
 </html>
