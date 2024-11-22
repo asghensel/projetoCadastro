@@ -1,3 +1,10 @@
+<?php
+session_start();
+include_once('../controle/controle_session.php');
+include_once('../modelo/conexao.php');
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -6,7 +13,7 @@
     <title>Navbar com Submenu</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/menu.css">
-    <script src="js/menu.js"></script>
+    <script src="../js/menu.js"></script>
 </head>
 <body>
     <nav>
@@ -27,7 +34,7 @@
                 <li><div class="navbar-item" data-menu="menu4">Movimentação</div></li>
                 <li id="logout">
                     <div class="navbar-item">
-                        <a href="login_usuario.php" class="logout-link">
+                        <a class="logout-link" onclick="logoutUser()">
                             <i class="fas fa-sign-out-alt"></i> Logout
                         </a>
                     </div>

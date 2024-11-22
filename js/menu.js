@@ -15,3 +15,8 @@
          submenu.style.display = 'none';
      });
  });
+
+ function logoutUser() {
+    alert('Usuario desconectado');
+    window.location.href = '../controle/logOut_controle.php';
+}
