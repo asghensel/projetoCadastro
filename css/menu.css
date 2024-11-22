@@ -1,3 +1,4 @@
+/* Estilização geral */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -5,17 +6,17 @@ body {
     background-color: #f4f4f4;
 }
 
-
+/* Navbar principal */
 nav {
     background-color: #333;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
 }
 
-ul{
+ul {
     margin: 0;
+    padding: 0;
 }
 
-/* Navbar principal */
 .navbar {
     display: flex;
     justify-content: center;
@@ -69,7 +70,41 @@ ul{
     background-color: #555;
 }
 
-
 .navbar-item:hover .submenu {
     display: block;
+}
+
+
+.logout-link {
+    margin-left: 50em;
+    display: flex;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
+}
+
+
+
+.logout-link i {
+    margin-right: 8px;
+    font-size: 16px;
+}
+
+.logout-link:hover {
+    background-color: #00bcd4;
+    color: white;
+    border-color: #00bcd4;
+}
+
+.logout-link:active {
+    background-color: #0097a7;
+}
+
+img {
+    margin-right: 5em;
+    width: 100px;
 }

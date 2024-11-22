@@ -4,34 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Navbar com Submenu</title>
-    <script src="../js/menu.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/menu.css">
+    <script src="js/menu.js"></script>
 </head>
 <body>
     <nav>
         <ul>
-    <div class="navbar">
-        <li><div class="navbar-item" data-menu="menu1">
-            Início
-           
-        </div></li>
-
-        <li><div class="navbar-item" data-menu="menu2">
-            Usuarios
-            <div class="submenu">
-                <a href="cadastrarusuario.php">Cadastrar</a>
-                <a href="listar_usuario.php">Listagem</a>
+            <div class="navbar">
+                <li><img src="../midia/logoSenac.png"></li>
+                <li><div class="navbar-item" data-menu="menu1">Início</div></li>
+                <li>
+                    <div class="navbar-item" data-menu="menu2">
+                        Usuarios
+                        <div class="submenu">
+                            <a href="cadastrarusuario.php">Cadastrar</a>
+                            <a href="listar_usuario.php">Listagem</a>
+                        </div>
+                    </div>
+                </li>
+                <li><div class="navbar-item" data-menu="menu3">Ativos</div></li>
+                <li><div class="navbar-item" data-menu="menu4">Movimentação</div></li>
+                <li id="logout">
+                    <div class="navbar-item">
+                        <a href="login_usuario.php" class="logout-link">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </a>
+                    </div>
+                </li>
             </div>
-        </div></li>
-
-        <li><div class="navbar-item" data-menu="menu3">
-            Ativos
-            </div></li>
-        
-        <li><div class="navbar-item" data-menu="menu4">
-            Movimentação
-        </div></li>
-    </ul>
-</nav>
+        </ul>
+    </nav>
 </body>
 </html>
