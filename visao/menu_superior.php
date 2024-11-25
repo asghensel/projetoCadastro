@@ -1,7 +1,7 @@
 <?php
-session_start();
+
 include_once('../controle/controle_session.php');
-include_once('../modelo/conexao.php');
+
 ?>
 
 
