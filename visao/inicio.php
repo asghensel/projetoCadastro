@@ -20,7 +20,7 @@ include_once('../controle/controle_session.php');
         <ul>
             <div class="navbar">
                 <li><img src="../midia/logoSenac.png"></li>
-                <li><div class="navbar-item" data-menu="menu1">Início</div></li>
+                <li><a href="inicio.php"><div class="navbar-item" data-menu="menu1">Início</div></a></li>
                 <li>
                     <div class="navbar-item" data-menu="menu2">
                         Usuarios
@@ -30,8 +30,8 @@ include_once('../controle/controle_session.php');
                         </div>
                     </div>
                 </li>
-                <li><div class="navbar-item" data-menu="menu3">Ativos</div></li>
-                <li><div class="navbar-item" data-menu="menu4">Movimentação</div></li>
+                <li><a href="ativos.php"><div class="navbar-item" data-menu="menu3">Ativos</div></a></li>
+                <li><a href="movimentacao_ativo.php"><div class="navbar-item" data-menu="menu4">Movimentação</div></a></li>
                 <li id="logout">
                     <div class="navbar-item">
                         <a class="logout-link" onclick="logoutUser()">
