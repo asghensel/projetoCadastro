@@ -22,7 +22,7 @@ include_once('modal_ativos.php');
 <body>
 
 
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" >Abrir Modal</button>
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" id="modal">Cadastrar Modal</button>
 
 <div class="container">
 
