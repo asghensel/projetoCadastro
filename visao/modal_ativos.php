@@ -1,7 +1,6 @@
 <?php
  include_once('cabecalho.php')
- 
- 
+
  ?>
  
  <!DOCTYPE html>
