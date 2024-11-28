@@ -23,7 +23,7 @@ $dados = $result->fetch_assoc();
 if($dados['quantidade']>0){
     $_SESSION['login_ok']=true;
     $_SESSION['controle_login']=true;
-    $_SESSION['id_user']=$dados['idUsuario'];
+    $_SESSION['idUser']=$dados['idUsuario'];
     header('location:../visao/listar_usuario.php');
 }else{
     $_SESSION['login_ok']=false;

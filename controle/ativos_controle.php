@@ -9,33 +9,36 @@ $quantidade_ativo = $_POST['quantidade'];
 $marca_ativo= $_POST['marca'];
 $tipo_ativo = $_POST['tipo'];
 $observacao_ativo = $_POST['observacao'];
-$user=$_SESSION['id_user'];
+$user=$_SESSION['idUser'];
 
 
 $query= "
     insert into ativo (
                     descricaoAtivo,
                     quantidadeAtivo,
-                    statusAtivo,
+                    statusAtivo3,
                     idMarca,
                     idTipo,
                     observacaoAtivo,  
                     dataCadastroAtivo,
-                    idUsuario)values(
-                    '".$ativo."',
+                    idUsuario
+                    )values(
+                    '".$descricao."',
                     '".$quantidade_ativo."',
                     'S',
                     '".$marca_ativo."',
                     '".$tipo_ativo."',
                     '".$observacao_ativo."',
                     NOW(),
-                    '".$user."',
+                    '".$user."'
                     
                                 )
 
         ";
 
 $result = mysqli_query($conexao, $query) or die(false);      
-
+if($result){
+    echo "cadastro realizado";
+}
 
 ?>

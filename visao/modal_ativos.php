@@ -36,18 +36,18 @@
             <label for="recipient-name" class="col-form-label">Marca</label>
                   <select class="form-select" id="marca">
                   <option selected>Selecione a marca</option>
-                  <option value="Lenovo">Lenovo</option>
-                  <option value="Dell">Dell</option>
-                  <option value="Positivo">Positivo</option>
+                  <option value="1">Lenovo</option>
+                  <option value="2">Dell</option>
+                  <option value="3">Positivo</option>
                 </select>
           </div>
           <div class="mb-1">
             <label for="recipient-name" class="col-form-label">Tipo</label>
                   <select class="form-select" id="tipo">
                   <option selected>Selecione o tipo</option>
-                  <option value="Ferramentas">Ferramentas</option>
-                  <option value="Hardware">Hardware</option>
-                  <option value="Periféricos">Periféricos</option>
+                  <option value="1">Ferramentas</option>
+                  <option value="2">Hardware</option>
+                  <option value="3">Periféricos</option>
                 </select>
           </div>
           <div class="mb-3">

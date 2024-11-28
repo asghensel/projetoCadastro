@@ -5,7 +5,8 @@ include_once('../controle/funcoes.php');
 
 
 $info_bd = busca_info_bd($conexao,'usuario');
-include_once('cabecalho.php');
+
+include_once('inicio.php');
 ?>
 
 <body>
