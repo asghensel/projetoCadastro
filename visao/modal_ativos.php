@@ -1,19 +1,17 @@
-<?php
- include_once('cabecalho.php')
-
- ?>
- 
- <!DOCTYPE html>
- <html lang="pt-br">
- <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ativos</title>
- </head>
- <body>
 
 
 
+<!-- Toast de Sucesso -->
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+  <div id="successToast" class="toast align-items-center text-bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="d-flex">
+      <div class="toast-body">
+        Cadastro efetuado com sucesso!
+      </div>
+      <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+  </div>
+</div>
 
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -26,33 +24,37 @@
         <form>
           <div class="mb-3">
             <label for="recipient-name" class="col-form-label">Descrição do Ativo</label>
-            <input type="text" class="form-control" id="descricao">
+            <input type="text" class="form-control" id="descricao" required>
           </div>
           <div class="mb-3">
             <label for="recipient-name" class="col-form-label">Quantidade</label>
-            <input type="number" class="form-control" id="quantidade">
+            <input type="number" class="form-control" id="quantidade" required >
           </div>
           <div class="mb-1">
             <label for="recipient-name" class="col-form-label">Marca</label>
-                  <select class="form-select" id="marca">
+                  <select class="form-select" id="marca" required>
                   <option selected>Selecione a marca</option>
-                  <option value="1">Lenovo</option>
-                  <option value="2">Dell</option>
-                  <option value="3">Positivo</option>
+                      <?php 
+                      foreach($marcas as $marca){
+                        echo '<option value="'.$marca['idMarca'].'">'.$marca['descricaoMarca'].'</option>';
+                      }
+                      ?>
                 </select>
           </div>
           <div class="mb-1">
             <label for="recipient-name" class="col-form-label">Tipo</label>
-                  <select class="form-select" id="tipo">
+                  <select class="form-select" id="tipo" required>
                   <option selected>Selecione o tipo</option>
-                  <option value="1">Ferramentas</option>
-                  <option value="2">Hardware</option>
-                  <option value="3">Periféricos</option>
+                  <?php 
+                      foreach($tipos as $tipo){
+                        echo '<option value="'.$tipo['idTipo'].'">'.$tipo['descricaoTipo'].'</option>';
+                      }
+                      ?>
                 </select>
           </div>
           <div class="mb-3">
-            <label for="recipient-name" class="col-form-label">Observação Ativo</label>
-            <input type="text" class="form-control" id="observacao">
+            <label for="recipient-name" class="col-form-label" >Observação Ativo</label>
+            <input type="text" class="form-control" id="observacao" required>
           </div>
 
         
@@ -69,6 +71,3 @@
 
 
 
-
- </body>
- </html>

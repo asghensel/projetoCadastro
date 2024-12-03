@@ -19,14 +19,23 @@ $(document).ready(function(){
         observacao:observacao_ativo
       },
 
-
-      success: function(result){
-    alert(result);
-        location.reload();
-    }});
-
-
-
+    });
 
   });
 });
+
+function muda_status(status,idAtivo){
+  $.ajax({
+    type:'POST',
+    url: "../controle/ativos_controle.php",
+    data:{
+      acao:'alterar_status',
+      status:status,
+      idAtivo:idAtivo
+    },
+
+    success: function(result){
+      alert(result);
+    }
+});
+}

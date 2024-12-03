@@ -5,11 +5,25 @@ include('inicio.php');
 include_once('../controle/funcoes.php');
 include_once('../modelo/conexao.php');
 
+$marcas=busca_info_bd($conexao,'marca');
+$tipos=busca_info_bd($conexao,'tipo');
+$sql="SELECT idAtivo, 
+descricaoAtivo, 
+quantidadeAtivo, 
+statusAtivo, 
+observacaoAtivo, 
+`dataCadastroAtivo`, 
+(SELECT descricaoMarca FROM marca m WHERE m.idMarca = a.idMarca) as marca,
+(SELECT descricaoTipo FROM tipo t WHERE t.idTipo = a.idTipo) as tipo,  
+(SELECT nomeUsuario FROM usuario u WHERE u.idUsuario = a.idUsuario) as usuario
+
+FROM ativo a";
+
+$result = mysqli_query($conexao, $sql) or die(false);
+$ativos = $result->fetch_all(MYSQLI_ASSOC);
+
 ?>
-<?php
-$info_bd = busca_info_bd($conexao,'ativo');
-include_once('modal_ativos.php');
-?>
+
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -36,70 +50,65 @@ include_once('modal_ativos.php');
     <th scope="col">Marca</th>
     <th scope="col">Tipo</th>
     <th scope="col">Observação</th>
+    <th scope="col">Data Cadastro</th>
+    <th scope="col">Usuario</th>
     <th scope="col">Ações</th>
     
   </tr>
 </thead>
 <tbody>
     <?php
-    foreach($info_bd as $user){
+    foreach($ativos as $ativo){
         ?>
     <tr>
       <td>
         
-        <?php echo $user['descricaoAtivo']; ?>
+        <?php echo $ativo['descricaoAtivo']; ?>
        
       </td>
-      <td>
-      
-      <?php echo $user['quantidadeAtivo']; ?>
-      
-    </td>
-      <td>
-  
-      <?php echo $user['idMarca']; ?>
-
-    </td>
-
-
-    <td>
-      <?php echo $user['idTipo']; ?>
-     
-    </td>
-
-    <td>
-     
-      <?php echo $user['observacaoAtivo']; ?>
-      
-    </td>
-
+      <td><?php echo $ativo['quantidadeAtivo']; ?></td>
+      <td><?php echo $ativo['marca']; ?></td>
+      <td><?php echo $ativo['tipo']; ?></td>
+      <td><?php echo $ativo['observacaoAtivo']; ?></td>
+      <td><?php echo $ativo['dataCadastroAtivo']; ?></td>
+      <td><?php echo $ativo['usuario']; ?></td>
     <td> 
+      <div class="acoes" style="display: flex; justify-content: space-between;">
+      <div class="muda_status">
+          <?php
+            if($ativo['statusAtivo']=="S"){
+              ?>
+              <div class="inativo" onclick="muda_status('N', '<?php echo $ativo['idAtivo'] ?>')">
+              <i class="bi bi-toggle-on" ></i>
+              </div>
+          <?php      
+            }else{
+               ?> 
+              <div class="ativo" onclick="muda_status('S', '<?php echo $ativo['idAtivo'] ?>')">
+                <i class="bi bi-toggle-off"></i>
+              </div>
+              <?php
+            }
+          ?>
+      </div>
 
-    <?php 
+      <div class="edit">
+      <i class="bi bi-pencil-square"></i>
+      </div>
 
-if (['statusAtivo'] === 'S') { 
-  
-  echo '<i class="fas fa-check-circle" style="color: green;"></i>';
-} elseif(['statusAtivo'] === 'N') {
-  
-  echo '<i class="fas fa-times-circle" style="color: red;"></i>';
+    </td>
+          </tr>
+    <?php
 }
 ?>
-
-    <i class="fas fa-check-circle" style="color: green;"></i>
-      <a href="movimentacao_ativo.php?idUsuario=<?php echo $user['idAtivo']; ?>">
-        <i class="fas fa-pencil-alt" style="color: blue;"></i>
-      </a>
-    </td>
-    </tr>
-        <?php
-
-    }
-    ?>
+</div>
 
   </tbody>
   </table>
 
 </div>
+<?php 
+include_once('modal_ativos.php');
+?>
 </body>
 </html>
