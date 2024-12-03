@@ -106,6 +106,9 @@ $ativos = $result->fetch_all(MYSQLI_ASSOC);
   </tbody>
   </table>
 
+
+<input type="hidden" id="idAtivo" value="">
+
 </div>
 <?php 
 include_once('modal_ativos.php');
