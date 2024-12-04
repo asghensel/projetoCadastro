@@ -26,6 +26,10 @@ if(idAtivo== ""){
         observacao:observacao_ativo
       },
 
+      success: function(result){
+        alert(result);
+        location.reload();
+      }
     });
 
   });
@@ -43,6 +47,8 @@ function muda_status(status,idAtivo){
 
     success: function(result){
       alert(result);
+      location.reload();
     }
 });
 }
+

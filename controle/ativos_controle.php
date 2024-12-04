@@ -43,7 +43,9 @@ if($acao == 'inserir'){
         ";
 
 $result = mysqli_query($conexao, $query) or die(false);      
-
+if($result){
+    echo "Ativo Cadastrado";
+}
 
 }
 if($acao == 'alterar_status'){
@@ -54,6 +56,7 @@ if($acao == 'alterar_status'){
     $result = mysqli_query($conexao, $sql) or die(false);
     if($result){
         echo "Status Alterado";
+        
     }
 }
 

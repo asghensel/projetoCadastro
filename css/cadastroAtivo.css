@@ -1,12 +1,98 @@
-a {
-    text-decoration: none;
+body {
+    font-family: Arial, sans-serif;
+    background-color: #757575;
+    margin: 0;
 }
 
-#modal{
-    height: 80px;
-    width: 300px;
-    margin-left: 25em ;
-    margin-top: 2em;
-    margin-bottom: 2em;
-    font-size: 30px;
+.container {
+    max-width: 1800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #a3a3a3;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+
+button#modal {
+    display: block;
+    margin: 30px auto 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 28px;
+    transition: background-color 0.3s ease;
+}
+
+button#modal:hover {
+    background-color: #0056b3;
+}
+
+/* Estilo da tabela */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    border: 3px solid #000000;;
+    border-radius: 10%;
+}
+
+th, td {
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #007bff!important;
+    color: white;
+}
+
+td{
+    background-color: transparent!important;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2!important;
+}
+
+/* Linhas ímpares (cor branca) */
+tr:nth-child(odd) {
+    background-color: #7dbcff!important;
+}
+
+tr:hover {
+    background-color: #72d2ff!important;
+}
+
+td {
+    font-size: 18px;
+}
+
+/* Ações - ícones */
+.acoes i {
+    font-size: 18px;
+    cursor: pointer;
+    margin: 0 5px;
+    color: #555;
+    transition: color 0.3s ease;
+}
+
+.acoes i:hover {
+    color: #007bff;
+}
+
+.muda_status .inativo i {
+    color: #28a745; /* Verde para ativo */
+}
+
+.muda_status .ativo i {
+    color: #dc3545; /* Vermelho para inativo */
+}
+
+.edit i {
+    color: #ffc107; /* Amarelo para editar */
+}
+

@@ -44,7 +44,7 @@ $ativos = $result->fetch_all(MYSQLI_ASSOC);
 
 <table class="table">
 <thead>
-  <tr>
+  <tr >
     <th scope="col">Descrição</th>
     <th scope="col">Quantidade</th>
     <th scope="col">Marca</th>
@@ -93,7 +93,7 @@ $ativos = $result->fetch_all(MYSQLI_ASSOC);
       </div>
 
       <div class="edit">
-      <i class="bi bi-pencil-square"></i>
+      <i class="bi bi-pencil-square" onclick="altera_ativo()"></i>
       </div>
 
     </td>
