@@ -23,7 +23,8 @@ if(idAtivo== ""){
         marca:marca_ativo,
         tipo:tipo_ativo,
         quantidade:quantidade_ativo,
-        observacao:observacao_ativo
+        observacao:observacao_ativo,
+        idAtivo:idAtivo
       },
 
       success: function(result){
@@ -52,3 +53,37 @@ function muda_status(status,idAtivo){
 });
 }
 
+function editar(idAtivo){
+  
+  $('#idAtivo').val(idAtivo)
+  $.ajax({
+    type:'POST',
+    url: "../controle/ativos_controle.php",
+    data:{
+      acao:'get_info',
+      idAtivo:idAtivo
+    },
+
+    success: function(result){
+      retorno=JSON.parse(result)
+      $('#modal').click();
+      $("#descricao").val(retorno[0]['descricaoAtivo']);
+      $("#quantidade").val(retorno[0]['quantidadeAtivo']);
+      $("#marca").val(retorno[0]['idMarca']);
+      $("#tipo").val(retorno[0]['idTipo']);
+      $("#observacao").val(retorno[0]['observacaoAtivo']);
+      
+      console.log(result);
+    }
+});
+
+  
+};
+
+function fechar_modal(){
+  $("#descricao").val('');
+      $("#quantidade").val('');
+      $("#marca").val('');
+      $("#tipo").val('');
+      $("#observacao").val('');
+}

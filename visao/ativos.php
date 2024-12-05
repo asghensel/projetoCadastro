@@ -38,7 +38,7 @@ $ativos = $result->fetch_all(MYSQLI_ASSOC);
 <body>
 
 
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" id="modal">Cadastrar Modal</button>
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" onclick="fechar_modal()" data-bs-target="#exampleModal" id="modal">Cadastrar Modal</button>
 
 <div class="container">
 
@@ -70,7 +70,10 @@ $ativos = $result->fetch_all(MYSQLI_ASSOC);
       <td><?php echo $ativo['marca']; ?></td>
       <td><?php echo $ativo['tipo']; ?></td>
       <td><?php echo $ativo['observacaoAtivo']; ?></td>
-      <td><?php echo $ativo['dataCadastroAtivo']; ?></td>
+      <td><?php 
+    $dataCadastro = $ativo['dataCadastroAtivo'];
+    echo date('d/m/Y H:i:s', strtotime($dataCadastro)); 
+    ?></td>
       <td><?php echo $ativo['usuario']; ?></td>
     <td> 
       <div class="acoes" style="display: flex; justify-content: space-between;">
@@ -93,7 +96,7 @@ $ativos = $result->fetch_all(MYSQLI_ASSOC);
       </div>
 
       <div class="edit">
-      <i class="bi bi-pencil-square" onclick="altera_ativo()"></i>
+      <i class="bi bi-pencil-square" onclick="editar('<?php echo $ativo['idAtivo'] ?>')"></i>
       </div>
 
     </td>

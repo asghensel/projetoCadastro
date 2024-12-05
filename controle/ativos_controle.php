@@ -1,5 +1,5 @@
 <?php
-ini_set('display_errors', 0);
+ini_set('display_errors', 1);
 error_reporting(E_ERROR);
 
 
@@ -61,4 +61,43 @@ if($acao == 'alterar_status'){
 }
 
 
+if($acao == 'get_info'){
+    $sql = "
+        Select 
+            descricaoAtivo,
+            quantidadeAtivo,
+            idMarca,
+            idTipo,
+            observacaoAtivo
+        From
+            ativo
+        Where
+            idAtivo = $idAtivo    
+    ";
+    $result = mysqli_query($conexao, $sql) or die(false);
+    $ativo = $result->fetch_all(MYSQLI_ASSOC);
+    echo json_encode($ativo);
+    exit();
+}
+
+    if($acao == 'update'){
+        $sql = "
+        update ativo set 
+
+        descricaoAtivo = '$descricao',
+        quantidadeAtivo = '$quantidade_ativo',
+        idTipo = '$tipo_ativo',
+        idMarca = '$marca_ativo',
+        observacaoAtivo = '$observacao_ativo'
+        
+
+        where idAtivo=$idAtivo
+        
+        ";
+        $result = mysqli_query($conexao, $sql) or die(false);
+        if($result){
+            echo "Informações Alteradas";
+            
+        }
+    }
 ?>
