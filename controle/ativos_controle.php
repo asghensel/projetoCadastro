@@ -100,4 +100,14 @@ if($acao == 'get_info'){
             
         }
     }
+
+    if ($acao == 'deletar') {
+        $sql = "DELETE FROM ativo WHERE idAtivo = $idAtivo";
+        $result = mysqli_query($conexao, $sql);
+        if ($result) {
+            echo "Ativo excluído com sucesso!";
+        } else {
+            echo "Erro ao excluir o ativo: " . mysqli_error($conexao);
+        }
+    }
 ?>

@@ -30,7 +30,16 @@ include_once('cabecalho.php');
                         </div>
                     </div>
                 </li>
-                <li><a href="ativos.php"><div class="navbar-item" data-menu="menu3">Ativos</div></a></li>
+                <li>
+                    <div class="navbar-item" data-menu="menu3">
+                        Cadastrar
+                        <div class="submenu">
+                            <a href="ativos.php">Ativos</a>
+                            <a href="marcas.php">Marcas</a>
+                            <a href="tipos.php">Tipos</a>
+                        </div>
+                    </div>
+                </li>
                 <li><a href="movimentacao_ativo.php"><div class="navbar-item" data-menu="menu4">Movimentação</div></a></li>
                 <li id="logout">
                     <div class="navbar-item">

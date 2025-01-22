@@ -8,7 +8,18 @@ $info_bd = busca_info_bd($conexao,'usuario');
 
 include_once('inicio.php');
 ?>
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/listarusuario.css">
+  <title>Listar Usuario</title>
+</head>
+<body>
+  
+</body>
+</html>
 <body>
   <div class="container">
 

@@ -16,7 +16,10 @@
      });
  });
 
- function logoutUser() {
-    alert('Usuario desconectado');
-    window.location.href = '../controle/logOut_controle.php';
-}
+
+        function logoutUser() {
+            if (confirm('Você realmente deseja sair?')) {
+                window.location.href = '../visao/login_usuario.php';
+            }
+        }
+  

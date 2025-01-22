@@ -87,3 +87,24 @@ function fechar_modal(){
       $("#tipo").val('');
       $("#observacao").val('');
 }
+
+
+function deletar(idAtivo) {
+  if (confirm("Tem certeza que deseja excluir esta marca?")) {
+      $.ajax({
+          type: 'POST',
+          url: "../controle/ativos_controle.php",
+          data: {
+              acao: 'deletar',
+              idAtivo: idAtivo
+          },
+          success: function (result) {
+              alert(result);
+              location.reload();
+          },
+          error: function (xhr) {
+              alert("Erro ao tentar excluir a marca: " + xhr.responseText);
+          }
+      });
+  }
+}

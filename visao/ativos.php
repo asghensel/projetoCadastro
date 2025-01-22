@@ -37,7 +37,7 @@ $ativos = $result->fetch_all(MYSQLI_ASSOC);
 </head>
 <body>
 
-
+<div class="container">
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" onclick="fechar_modal()" data-bs-target="#exampleModal" id="modal">Cadastrar Modal</button>
 
 <div class="container">
@@ -50,7 +50,7 @@ $ativos = $result->fetch_all(MYSQLI_ASSOC);
     <th scope="col">Marca</th>
     <th scope="col">Tipo</th>
     <th scope="col">Observação</th>
-    <th scope="col">Data Cadastro</th>
+    <th scope="col">Data</th>
     <th scope="col">Usuario</th>
     <th scope="col">Ações</th>
     
@@ -99,6 +99,10 @@ $ativos = $result->fetch_all(MYSQLI_ASSOC);
       <i class="bi bi-pencil-square" onclick="editar('<?php echo $ativo['idAtivo'] ?>')"></i>
       </div>
 
+      <div class="trash">
+      <i class="bi bi-trash" onclick="deletar('<?php echo $ativo['idAtivo'] ?>')"></i>
+      </div>
+
     </td>
           </tr>
     <?php
@@ -116,5 +120,6 @@ $ativos = $result->fetch_all(MYSQLI_ASSOC);
 <?php 
 include_once('modal_ativos.php');
 ?>
+</div>
 </body>
 </html>
