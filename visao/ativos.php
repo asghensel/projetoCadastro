@@ -105,6 +105,10 @@ $ativos = $result->fetch_all(MYSQLI_ASSOC);
 
     </td>
           </tr>
+        
+    
+        
+    
     <?php
 }
 ?>

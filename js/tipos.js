@@ -19,9 +19,32 @@ $(document).ready(function(){
           descricao:descricao_tipo
         },
   
-        success: function(result){
-          alert(result);
-          location.reload();
+        success: function (result) {
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Operação concluída com sucesso!",
+            text: result, // Exibe a mensagem retornada do servidor
+            background: "#F5F5F5",
+            color: "#333",
+            confirmButtonColor: "#ff4757",
+            showConfirmButton: false,
+            timer: 2000 // Duração do alerta
+          }).then(() => {
+            // Após o alerta, recarrega a página
+            location.reload();
+          });
+        },
+        error: function (xhr) {
+          Swal.fire({
+            position: "center",
+            icon: "error",
+            title: "Ocorreu um erro na operação.",
+            text: xhr.responseText, // Mostra a mensagem de erro retornada pelo servidor
+            background: "#F5F5F5",
+            color: "#333",
+            confirmButtonColor: "#ff4757"
+          });
         }
       });
   
@@ -81,21 +104,30 @@ $(document).ready(function(){
   }
 
   function deletar(idTipo) {
-    if (confirm("Tem certeza que deseja excluir este tipo?")) {
-        $.ajax({
-            type: 'POST',
-            url: "../controle/tipos_controle.php",
-            data: {
-                acao: 'deletar',
-                idTipo: idTipo
-            },
-            success: function (result) {
-                alert(result);
-                location.reload();
-            },
-            error: function (xhr) {
-                alert("Erro ao tentar excluir a marca: " + xhr.responseText);
-            }
-        });
-    }
-}
+    Swal.fire({
+        title: "Tem certeza?",
+        text: "Você realmente deseja excluir este item?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#d33",
+        cancelButtonColor: "#3085d6",
+        confirmButtonText: "Sim, excluir",
+        cancelButtonText: "Cancelar"
+    }).then((result) => {
+        if (result.isConfirmed) {
+            var form = document.createElement('form');
+            form.method = 'POST';
+            form.action = '../delete/deletar_tipo.php';
+  
+            var input = document.createElement('input');
+            input.type = 'hidden';
+            input.name = 'idTipo';
+            input.value = idTipo;
+  
+  
+            form.appendChild(input);
+            document.body.appendChild(form);
+            form.submit();
+        }
+    });
+  }

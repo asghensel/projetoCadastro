@@ -1,5 +1,5 @@
-$(document).ready(function(){
-  $("#salvar_info").click(function(){
+$(document).ready(function () {
+  $("#salvar_info").click(function () {
     let descricao_ativo = $("#descricao").val();
     let quantidade_ativo = $("#quantidade").val();
     let marca_ativo = $("#marca").val();
@@ -7,32 +7,52 @@ $(document).ready(function(){
     let observacao_ativo = $("#observacao").val();
     let idAtivo = $("#idAtivo").val();
 
-if(idAtivo== ""){
-  acao='inserir';
-}else{
-  acao='update';
-}
-
+    if(idAtivo== ""){
+      acao='inserir';
+    }else{
+      acao='update';
+    }
 
     $.ajax({
-      type:'POST',
+      type: 'POST',
       url: "../controle/ativos_controle.php",
-      data:{
-        acao:acao,
-        descricao:descricao_ativo,
-        marca:marca_ativo,
-        tipo:tipo_ativo,
-        quantidade:quantidade_ativo,
-        observacao:observacao_ativo,
-        idAtivo:idAtivo
+      data: {
+        acao: acao,
+        descricao: descricao_ativo,
+        marca: marca_ativo,
+        tipo: tipo_ativo,
+        quantidade: quantidade_ativo,
+        observacao: observacao_ativo,
+        idAtivo: idAtivo
       },
-
-      success: function(result){
-        alert(result);
-        location.reload();
+      success: function (result) {
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Operação concluída com sucesso!",
+          text: result, // Exibe a mensagem retornada do servidor
+          background: "#F5F5F5",
+          color: "#333",
+          confirmButtonColor: "#ff4757",
+          showConfirmButton: false,
+          timer: 2000 // Duração do alerta
+        }).then(() => {
+          // Após o alerta, recarrega a página
+          location.reload();
+        });
+      },
+      error: function (xhr) {
+        Swal.fire({
+          position: "center",
+          icon: "error",
+          title: "Ocorreu um erro na operação.",
+          text: xhr.responseText, // Mostra a mensagem de erro retornada pelo servidor
+          background: "#F5F5F5",
+          color: "#333",
+          confirmButtonColor: "#ff4757"
+        });
       }
     });
-
   });
 });
 
@@ -89,22 +109,33 @@ function fechar_modal(){
 }
 
 
+
 function deletar(idAtivo) {
-  if (confirm("Tem certeza que deseja excluir esta marca?")) {
-      $.ajax({
-          type: 'POST',
-          url: "../controle/ativos_controle.php",
-          data: {
-              acao: 'deletar',
-              idAtivo: idAtivo
-          },
-          success: function (result) {
-              alert(result);
-              location.reload();
-          },
-          error: function (xhr) {
-              alert("Erro ao tentar excluir a marca: " + xhr.responseText);
-          }
-      });
-  }
+  Swal.fire({
+      title: "Tem certeza?",
+      text: "Você realmente deseja excluir este item?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#d33",
+      cancelButtonColor: "#3085d6",
+      confirmButtonText: "Sim, excluir",
+      cancelButtonText: "Cancelar"
+  }).then((result) => {
+      if (result.isConfirmed) {
+          var form = document.createElement('form');
+          form.method = 'POST';
+          form.action = '../delete/deletar_ativo.php';
+
+          var input = document.createElement('input');
+          input.type = 'hidden';
+          input.name = 'idAtivo';
+          input.value = idAtivo;
+
+
+          form.appendChild(input);
+          document.body.appendChild(form);
+          form.submit();
+      }
+  });
 }
+
