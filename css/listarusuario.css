@@ -6,31 +6,32 @@ body {
 
 .container {
     margin: 50px auto;
-    max-width: 900px;
+    max-width: 1200px; /* Aumenta a largura máxima */
     background: #ffffff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
 h1 {
     color: #007bff;
     text-align: center;
-    margin-bottom: 20px;
+    font-size: 2.5em; /* Aumenta o tamanho do título */
+    margin-bottom: 30px;
 }
 
 .table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
-    font-size: 1em;
+    font-size: 1.5em; /* Aumenta o tamanho da fonte na tabela */
 }
 
 .table th,
 .table td {
     border: 1px solid #ddd;
     text-align: center;
-    padding: 10px;
+    padding: 20px; /* Aumenta o espaçamento entre o texto e as bordas */
 }
 
 .table th {
@@ -49,14 +50,14 @@ h1 {
 
 .btn-primary {
     display: block;
-    margin: auto;
-    padding: 10px 15px;
+    margin: 20px auto;
+    padding: 15px 20px;
     background-color: #007bff;
     color: #fff;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 1.5em; /* Aumenta o tamanho do texto do botão */
     transition: background-color 0.3s ease;
 }
 
@@ -67,11 +68,11 @@ h1 {
 .acoes {
     display: flex;
     justify-content: center;
-    gap: 15px;
+    gap: 30px; /* Aumenta o espaço entre os ícones */
 }
 
 .acoes i {
-    font-size: 1.5em;
+    font-size: 2em; /* Aumenta o tamanho dos ícones */
     cursor: pointer;
     color: #555;
     transition: color 0.3s ease;
