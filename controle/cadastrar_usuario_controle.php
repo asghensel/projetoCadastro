@@ -13,12 +13,15 @@ $query= "
                     nicknameUsuario,
                     senhaUsuario,
                     turmaCadastro,  
-                    dataCadastro)values(
+                    dataCadastro,
+                    cargoUsuario
+                    )values(
                     '".$nome."',
                     '".$usuario."',
                     '".$crip."',
                     '".$turma."',
-                    NOW()
+                    NOW(),
+                    'N'
                                 )
 
         ";

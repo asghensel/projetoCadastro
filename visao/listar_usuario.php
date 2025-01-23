@@ -2,11 +2,12 @@
 include_once('../controle/controle_session.php');
 include_once('../modelo/conexao.php');
 include_once('../controle/funcoes.php');
-
-
 $info_bd = busca_info_bd($conexao,'usuario');
-
 include_once('inicio.php');
+
+
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,11 +22,14 @@ include_once('inicio.php');
 </body>
 </html>
 <body>
+
+
   <div class="container">
 
   <table class="table">
   <thead>
     <tr>
+      <th scope="col">ID</th>
       <th scope="col">Nome</th>
       <th scope="col">Usuário</th>
       <th scope="col">Turma</th>
@@ -37,20 +41,25 @@ include_once('inicio.php');
     foreach($info_bd as $user){
         ?>
     <tr>
-      <td>
-        <a href="alterar_usuario.php?idUsuario=<?php echo $user['idUsuario']; ?>">
-        <?php echo $user['nomeUsuario']; ?>
-        </a>
+    <td>
+        <?php echo $user['idUsuario']; ?>
+       
+        
       </td>
       <td>
-      <a href="alterar_usuario.php?idUsuario=<?php echo $user['idUsuario']; ?>">
+        
+        <?php echo $user['nomeUsuario']; ?>
+        
+      </td>
+      <td>
+      
       <?php echo $user['nicknameUsuario']; ?>
-      </a>
+     
     </td>
       <td>
-      <a href="alterar_usuario.php?idUsuario=<?php echo $user['idUsuario']; ?>">
+     
       <?php echo $user['turmaCadastro']; ?>
-      </a>
+      
     </td>
     </tr>
         <?php
