@@ -6,7 +6,11 @@ $nome = $_POST['nome'];
 $turma = $_POST['turma'];
 $senha = $_POST['senha'];
 $usuario = $_POST['usuario'];
+
+
 $crip = base64_encode($senha);
+
+
 $query= "
     insert into usuario (
                     nomeUsuario,

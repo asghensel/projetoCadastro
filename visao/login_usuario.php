@@ -19,29 +19,42 @@ include_once('cabecalho.php');
   <link rel="stylesheet" href="../css/loginUsuario.css">
   <title>Login</title>
 </head>
-<body>
+
   
-</body>
-</html>
+
 <body>
-<div class="container">
-<form action="../controle/login_usuario_controle.php" method="post" id="formulario">
-  <div class="box">
-  <h1 id="title">Login</h1>
-      <div class="mb-2">
+<section>
+    <div class="form-box">
+        <!-- Cabeçalho com imagem -->
+        <div class="form-header">
+            <img src="../midia/logologin.jpg." alt="Logo Senac" class="header-logo">
+        </div>
+
+        <div class="form-value">
+            <h2>Login</h2>
+            <form action="../controle/login_usuario_controle.php" method="post" id="formulario">
+      <div class="inputbox">
+    
+    <input type="text"  class="form-control" id="nome"  name="usuario" required >
     <label for="nome" class="form-label">Nome Usuario</label>
-    <input type="text"  class="form-control" id="nome" placeholder="Digite seu nome aqui" name="usuario" required >
   </div>
-  <div class="mb-2">
+  <div class="inputbox">
+    
+    <input type="password" class="form-control" id="senha"  name="senha" required >
     <label for="senha" class="form-label">Senha</label>
-    <input type="password" class="form-control" id="senha" placeholder="Digite sua senha aqui" name="senha" required >
   </div>
   
-  <button type="submit" class="btn btn-primary">Salvar</button>
-  </div>
+  <button type="submit" class="btn btn-primary">Login</button>
 </form>
-
-
-</div> 
+           
+                <p> Não tem uma conta? <a href="cadastrarusuario.php" >Cadastro</a></p>      
+                
+                
+                
+        </div>
+    </div>
+</section>
 </body>
 </html>
+
+

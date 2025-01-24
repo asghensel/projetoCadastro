@@ -9,7 +9,8 @@ $crip= base64_encode($senha);
 
 $sql="Select 
             count(*) as quantidade,
-            idUsuario
+            idUsuario,
+            admin
         from 
             usuario         
         where  
@@ -24,6 +25,12 @@ if($dados['quantidade']>0){
     $_SESSION['login_ok']=true;
     $_SESSION['controle_login']=true;
     $_SESSION['idUser']=$dados['idUsuario'];
+    if($dados['admin']=='S'){
+        $_SESSION['admin']='S';
+    }
+    else{
+        $_SESSION['admin']='N';
+    }
     header('location:../visao/listar_usuario.php');
 }else{
     $_SESSION['login_ok']=false;
