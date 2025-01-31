@@ -22,7 +22,7 @@ $(document).ready(function(){
         success: function (result) {
           Swal.fire({
             position: "center",
-            icon: "success",
+            icon: "error",
             title: "Operação concluída com sucesso!",
             text: result, // Exibe a mensagem retornada do servidor
             background: "#F5F5F5",
@@ -106,7 +106,7 @@ $(document).ready(function(){
   function deletar(idTipo) {
     Swal.fire({
         title: "Tem certeza?",
-        text: "Você realmente deseja excluir este item?",
+        text: "Você realmente deseja excluir este tipo?",
         icon: "warning",
         showCancelButton: true,
         confirmButtonColor: "#d33",

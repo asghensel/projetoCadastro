@@ -18,8 +18,26 @@
 
 
         function logoutUser() {
-            if (confirm('Você realmente deseja sair?')) {
-                window.location.href = '../visao/login_usuario.php';
-            }
+            Swal.fire({
+                title: "Tem certeza?",
+                text: "Você realmente deseja deslogar usuário?",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#d33",
+                cancelButtonColor: "#3085d6",
+                confirmButtonText: "Sim, Sair",
+                cancelButtonText: "Cancelar"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    var form = document.createElement('form');
+                    form.method = 'POST';
+                    form.action = '../controle/logOut_controle.php';
+                    
+                    document.body.appendChild(form);
+                    form.submit();
+                }
+            }) 
         }
   
+
+        

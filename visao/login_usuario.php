@@ -1,14 +1,36 @@
 <?php
+
 session_start();
+include_once('cabecalho.php');
 if(isset($_GET['erro']) && $_GET['erro'] =='acesso_negado'){
-  echo "<script>alert('Usuario não autenticado'); </script>";
+  ?>
+  <script>
+document.addEventListener("DOMContentLoaded", function() {
+    Swal.fire({
+        position: "center",
+        icon: "error",
+        title: "Acesso negado!",
+        text: "Você precisa primeiro fazer seu Login.",
+        background: "#F5F5F5",
+        color: "#333",
+        confirmButtonColor: "#ff4757",
+        showConfirmButton: false,
+        timer: 2000 
+    }).then(() => {
+      setTimeout(() => {
+    window.location.href = "login_usuario.php";
+}, 3000);
+    });
+});
+</script>
+  <?php
 }
 if(isset($_GET['error_auten']) && $_GET['error_auten']=='s'){
   echo "<script>alert('Senha ou usuario invalido!');</script>";
 }
-
 include_once('../modelo/conexao.php');
-include_once('cabecalho.php');
+
+
 
 ?>
 <!DOCTYPE html>

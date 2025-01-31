@@ -1,7 +1,7 @@
 <?php 
 include_once('../controle/controle_session.php');
 include_once('cabecalho.php');
-include('inicio.php');
+include('menu.php');
 include_once('../controle/funcoes.php');
 include_once('../modelo/conexao.php');
 

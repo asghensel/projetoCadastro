@@ -113,7 +113,7 @@ function fechar_modal(){
 function deletar(idAtivo) {
   Swal.fire({
       title: "Tem certeza?",
-      text: "Você realmente deseja excluir este item?",
+      text: "Você realmente deseja excluir este ativo?",
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#d33",

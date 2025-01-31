@@ -31,7 +31,7 @@ if($dados['quantidade']>0){
     else{
         $_SESSION['admin']='N';
     }
-    header('location:../visao/listar_usuario.php');
+    header('location:../visao/ativos.php');
 }else{
     $_SESSION['login_ok']=false;
     unset($_SESSION['controle_login']);

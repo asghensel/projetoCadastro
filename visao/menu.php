@@ -41,6 +41,7 @@ include_once('cabecalho.php');
                     </div>
                 </li>
                 <li><a href="movimentacao_ativo.php"><div class="navbar-item" data-menu="menu4">Movimentação</div></a></li>
+                <li><a href="relatorios.php"><div class="navbar-item" data-menu="menu5">Relatórios</div></a></li>
                 <li id="logout">
                     <div class="navbar-item">
                         <a class="logout-link" onclick="logoutUser()">

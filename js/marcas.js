@@ -104,7 +104,7 @@ $(document).ready(function(){
   function deletar(idMarca) {
     Swal.fire({
         title: "Tem certeza?",
-        text: "Você realmente deseja excluir este item?",
+        text: "Você realmente deseja excluir esta marca?",
         icon: "warning",
         showCancelButton: true,
         confirmButtonColor: "#d33",

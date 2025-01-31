@@ -3,7 +3,7 @@ include_once('../controle/controle_session.php');
 include_once('../controle/funcoes.php');
 include('../modelo/conexao.php');
 $title="Marcas";
-include('inicio.php');
+include('menu.php');
 include_once('cabecalho.php');
 $sql = "
 SELECT 
