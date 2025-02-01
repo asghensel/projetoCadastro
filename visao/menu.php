@@ -19,7 +19,7 @@ include_once('cabecalho.php');
     <nav>
         <ul>
             <div class="navbar">
-                <li><img src="../midia/logoSenac.png"></li>
+                <li><img src="../midia/senac_logo_branco.png"></li>
                 <li><a href="telaInicial.php"><div class="navbar-item" data-menu="menu1">Início</div></a></li>
                 <li>
                     <div class="navbar-item" data-menu="menu2">

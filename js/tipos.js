@@ -22,11 +22,11 @@ $(document).ready(function(){
         success: function (result) {
           Swal.fire({
             position: "center",
-            icon: "error",
-            title: "Operação concluída com sucesso!",
+            icon: "success",
+            title: "<span style='color: #009000;'>Tipo cadastrado com sucesso</span>",
             text: result, // Exibe a mensagem retornada do servidor
             background: "#F5F5F5",
-            color: "#333",
+            color: "#009000Z",
             confirmButtonColor: "#ff4757",
             showConfirmButton: false,
             timer: 2000 // Duração do alerta

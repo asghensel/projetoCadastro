@@ -108,7 +108,7 @@ $queryUpdate = "
 
 $result = mysqli_query($conexao,$query) or die(false);
 if($result){
-    echo "Sucesso";
+    echo "Movimentação efetuada";
 }else{
     echo "erro";
 }

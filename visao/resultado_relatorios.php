@@ -1,40 +1,82 @@
-<?php 
+<?php
+ini_set('display_errors', 1);
+error_reporting(E_ERROR);
 include_once('../controle/controle_session.php');
 include_once('cabecalho.php');
-$title="Movimentações";
+$title="Relatório Gerado";
 include('menu.php');
-include_once('../controle/funcoes.php');
 include_once('../modelo/conexao.php');
 
-$ativos=busca_info_bd($conexao,'ativo');
-$sql="SELECT idMovimentacao, 
-descricaoMovimentacao, 
-quantidadeMov, 
-quantidadeUso,
-statusMov, 
-tipoMovimentacao,
-localOrigem, 
-localDestino,
-`dataMovimentacao`, 
 
-(SELECT descricaoAtivo FROM ativo m WHERE m.idAtivo = a.idAtivo) as ativo, 
-(SELECT nomeUsuario FROM usuario u WHERE u.idUsuario = a.idUsuario) as usuario,
-(SELECT quantidadeAtivo FROM ativo m WHERE m.idAtivo = a.idAtivo) as quantidadeTotalAtivo
-FROM movimentacao a
-Where statusMov = 'S'";
+$ativo= $_POST['ativo'];
+$dataInicial= $_POST['dataInicial'];
+$dataFinal= $_POST['dataFinal'];
+$marca= $_POST['marca'];
+$tipo= $_POST['tipo'];
+$user= $_POST['usuario'];
+$tipoMov= $_POST['movimentacao'];
+
+$sql="
+    SELECT 
+       (SELECT descricaoAtivo FROM ativo a WHERE a.idAtivo= m.idAtivo) as ativo,
+       (SELECT nomeUsuario FROM usuario u WHERE u.idUsuario= m.idUsuario) as usuario,
+       (SELECT quantidadeAtivo FROM ativo a WHERE a.idAtivo = m.idAtivo) as quantidadeTotalAtivo,
+        descricaoMovimentacao, 
+        quantidadeMov, 
+        quantidadeUso,
+        statusMov, 
+        tipoMovimentacao,
+        localOrigem, 
+        localDestino,
+        `dataMovimentacao`
 
 
-$result = mysqli_query($conexao, $sql) or die(false);
-$movimentacoes = $result->fetch_all(MYSQLI_ASSOC);
+       FROM movimentacao m
 
+
+        WHERE
+        idAtivo is not null
+";
+    if($ativo != '' && $ativo != null){
+        $sql.=" AND m.idAtivo=$ativo";
+    }else{
+        if($marca != '' && $marca != null){
+            $sql.=" AND m.idAtivo in(SELECT idAtivo FROM ativo a WHERE a.idMarca=$marca)";
+        }
+        if($tipo != '' && $tipo != null){
+            $sql.=" AND m.idAtivo in(SELECT idAtivo FROM ativo a WHERE a.idTipo=$tipo)";
+        }
+
+    }
+
+    if($user != '' && $user != null){
+        $sql.=" AND m.idUsuario=$user";
+    }
+    if($tipoMov != '' && $tipoMov != null){
+        $sql.=" AND m.tipoMov='$tipoMov'";
+    }
+
+    if($dataInicial != '' && $dataInicial != null){
+        $sql.=" AND m.dataMovimentacao>'$dataInicial'";
+    }
+    if($dataFinal != '' && $dataFinal != null){
+        $sql.=" AND m.dataMovimentacao < '$dataFinal'";
+    } 
+
+
+    $result = mysqli_query($conexao, $sql) or die(false);
+    $movimentacoes = $result->fetch_all(MYSQLI_ASSOC);
+    
+    
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="../css/movimentacoes.css">
+    <link rel="stylesheet" href="../css/resultadoRelatorio.css">
     <script src="../js/movimentacao.js"></script>
     <title>Cadastro_ativos</title>
 </head>
@@ -49,7 +91,7 @@ $movimentacoes = $result->fetch_all(MYSQLI_ASSOC);
 <thead>
   <tr >
     <th scope="col">Ativo</th>
-
+    <th scope="col">Usuario</th>
     <th scope="col">Tipo</th>
     <th scope="col">Qtd. Uso</th>
     <th scope="col">Qtd. Antiga</th>
@@ -69,6 +111,7 @@ $movimentacoes = $result->fetch_all(MYSQLI_ASSOC);
         ?>
     <tr>
       <td><?php echo $movimentacao['ativo']; ?></td>
+      <td><?php echo $movimentacao['usuario']; ?></td>
       <td><?php echo $movimentacao['tipoMovimentacao']; ?></td>
       <td><?php echo $movimentacao['quantidadeUso']; ?></td>
       <td><?php echo $movimentacao['quantidadeMov']; ?></td>
@@ -97,9 +140,7 @@ $movimentacoes = $result->fetch_all(MYSQLI_ASSOC);
 <input type="hidden" id="idMovimentacao" value="">
 
 </div>
-<?php 
-include_once('modal_movimentacao.php');
-?>
+
 </div>
 </body>
 </html>

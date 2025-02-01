@@ -28,7 +28,7 @@ if($acao == 'inserir'){
 
 $result = mysqli_query($conexao, $query) or die(false);      
 if($result){
-    echo "Tipo Cadastrada";
+    echo "Tipo Cadastrado";
 }}
 
 if($acao == 'alterar_status'){

@@ -31,7 +31,7 @@ $(document).ready(function () {
           Swal.fire({
             position: "center",
             icon: "success",
-            title: "Operação concluída com sucesso!",
+            title:"<span style='color: #009000;'>Movimetação efetuada com sucesso</span>",
             text: result, // Exibe a mensagem retornada do servidor
             background: "#F5F5F5",
             color: "#333",
