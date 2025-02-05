@@ -45,6 +45,10 @@
             <input type="text" class="form-control" id="observacao" required>
           </div>
 
+          <div class="mb-3">
+  <label for="formFile" class="form-label">Adicionar imagem</label>
+  <input class="form-control" accept="image/png, image/jpeg" type="file" id="imgAtivo">
+          </div>
         
       </div>
       <div class="modal-footer">

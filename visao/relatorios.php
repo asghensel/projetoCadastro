@@ -87,7 +87,7 @@ $movimentacoes=busca_info_bd($conexao,'movimentacao');
                     } ?>
                 </select>
             </div>
-            
+            </div> 
             <div id="movimento">
                 <label for="movimentacao">Tipo de Movimentação</label>
                 <select class="form-select" id="movimentacao" name="movimentacao" >
@@ -97,8 +97,8 @@ $movimentacoes=busca_info_bd($conexao,'movimentacao');
                     <option value="adicionar">Adicionar</option>
                 </select>
             </div>
-        
-
+                
+                
         <div class="btn-group">
             <button type="submit" class="btn-primary"  id="salvar_info">Gerar Relatório</button>
             <button type="reset" class="btn-secondary" >Limpar filtros</button>

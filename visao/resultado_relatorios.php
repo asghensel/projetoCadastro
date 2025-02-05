@@ -2,7 +2,7 @@
 ini_set('display_errors', 1);
 error_reporting(E_ERROR);
 include_once('../controle/controle_session.php');
-include_once('cabecalho.php');
+
 $title="Relatório Gerado";
 include('menu.php');
 include_once('../modelo/conexao.php');
@@ -53,7 +53,7 @@ $sql="
         $sql.=" AND m.idUsuario=$user";
     }
     if($tipoMov != '' && $tipoMov != null){
-        $sql.=" AND m.tipoMov='$tipoMov'";
+        $sql.=" AND m.tipoMovimentacao='$tipoMov'";
     }
 
     if($dataInicial != '' && $dataInicial != null){
@@ -76,18 +76,32 @@ $sql="
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.datatables.net/2.2.1/js/dataTables.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.2.1/js/dataTables.buttons.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.2.1/js/buttons.dataTables.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.2.1/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.2.1/js/buttons.print.min.js"></script>
+    
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.2.1/css/dataTables.dataTables.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/3.2.1/css/buttons.dataTables.css">
     <link rel="stylesheet" href="../css/resultadoRelatorio.css">
-    <script src="../js/movimentacao.js"></script>
+    <script src="../js/relatorios.js"></script>
     <title>Cadastro_ativos</title>
 </head>
 <body>
 
 <div class="container">
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" onclick="fechar_modal()" data-bs-target="#exampleModal" id="modal">Cadastrar Movimentação</button>
+    <div class="grid-container">
+<h2><b>Relatório Gerado</b></h2>
+<button type="submit" class="btn btn-secondary" ><a href="relatorios.php">Voltar</a></button>
+            </div>
+            <hr>
+<div class="container" id="tabelona">
 
-<div class="container">
-
-<table class="table">
+<table class="display" id="relatorio" >
 <thead>
   <tr >
     <th scope="col">Ativo</th>
@@ -100,9 +114,6 @@ $sql="
     <th scope="col">Loc.Destino</th>
     <th scope="col">Data</th>
     <th scope="col">Descrição</th>
-   
-    
-    
   </tr>
 </thead>
 <tbody>

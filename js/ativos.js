@@ -13,6 +13,8 @@ $(document).ready(function () {
       acao='update';
     }
 
+    new FormData
+
     $.ajax({
       type: 'POST',
       url: "../controle/ativos_controle.php",
