@@ -19,29 +19,28 @@ $idAtivo= $_POST['idAtivo'];
 $statusAtivo= $_POST['status'];
 $img = $_FILES['img'];
 
-if (isset($_FILES['img']) && $_FILES['img']['error'] == 0) {
-    // Defina o diretório de uploads
-    $diretorio = "../uploads/";
-    $arquivo = $_FILES['img'];
-    $nomeArquivo = time() . '_' . basename($arquivo['name']); // Nome único para o arquivo
-    $caminhoArquivo = $diretorio . $nomeArquivo;
 
-    // Verifica se o diretório existe, se não, cria
-    if (!is_dir($diretorio)) {
-        mkdir($diretorio, 0777, true);
+
+if($acao == 'inserir'){
+    $pasta_base = $_SERVER['DOCUMENT_ROOT'].'/aulasenac/projetocadastro/uploads';
+
+    if(!file_exists($pasta_base)){
+        mkdir($pasta_base);
     }
+    $data = date("YmdHis");
+    $tipoImagem= $img['type'];
+    $quebraTipo = explode('/', $tipoImagem);
+    $extensao = $quebraTipo[1];
 
-    // Move o arquivo para o diretório
-    if (move_uploaded_file($arquivo['tmp_name'], $caminhoArquivo)) {
-        $imagem_ativo = $caminhoArquivo; // Caminho completo do arquivo
-    } else {
-        echo "Erro ao fazer upload da imagem.";
+    $result = move_uploaded_file($img['tpm_name'],$pasta_base . $data . '.' . $extensao);
+    if($result == false){
+        echo "falha ao mover o arquivo";
         exit();
     }
-    var_dump($_FILES);
-    exit();
-}
-if($acao == 'inserir'){
+
+    $urlImagem = 'aulasenac/projetocadastro/uploads/' . $data . '.' . $extensao;
+
+
     $query= "
     insert into ativo (
                     descricaoAtivo,
@@ -51,7 +50,8 @@ if($acao == 'inserir'){
                     idTipo,
                     observacaoAtivo,  
                     dataCadastroAtivo,
-                    idUsuario
+                    idUsuario,
+                    urlImagem
                     )values(
                     '".$descricao."',
                     '".$quantidade_ativo."',
@@ -60,8 +60,8 @@ if($acao == 'inserir'){
                     '".$tipo_ativo."',
                     '".$observacao_ativo."',
                     NOW(),
-                    '".$user."'
-                   
+                    '".$user."',
+                    '".$urlImagem."'
                                 )
 
         ";

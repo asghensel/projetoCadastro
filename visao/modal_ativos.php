@@ -47,7 +47,7 @@
 
           <div class="mb-3">
   <label for="formFile" class="form-label">Adicionar imagem</label>
-  <input class="form-control" accept="image/png, image/jpeg" type="file" id="imgAtivo">
+  <input class="form-control" accept="image/png, image/jpeg, image/jpg" type="file" id="imgAtivo">
           </div>
         
       </div>
