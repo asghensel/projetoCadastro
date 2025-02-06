@@ -6,27 +6,34 @@ $(document).ready(function () {
     let tipo_ativo = $("#tipo").val();
     let observacao_ativo = $("#observacao").val();
     let idAtivo = $("#idAtivo").val();
-
+    let imagem_ativo = $("#imgAtivo");
+    img=imagem_ativo[0].files[0];
     if(idAtivo== ""){
       acao='inserir';
     }else{
       acao='update';
     }
 
-    new FormData
+    var formData = new FormData();
+    formData.append("acao", acao);
+    formData.append("descricao", descricao_ativo);
+    formData.append("quantidade", quantidade_ativo);
+    formData.append("marca", marca_ativo);
+    formData.append("tipo", tipo_ativo);
+    formData.append("observacao", observacao_ativo);
+    formData.append("idAtivo", idAtivo);
+    if(imagem_ativo){
+      formData.append("img", img);
+    }
+
 
     $.ajax({
       type: 'POST',
       url: "../controle/ativos_controle.php",
-      data: {
-        acao: acao,
-        descricao: descricao_ativo,
-        marca: marca_ativo,
-        tipo: tipo_ativo,
-        quantidade: quantidade_ativo,
-        observacao: observacao_ativo,
-        idAtivo: idAtivo
-      },
+      data: formData,
+      processData: false, 
+      contentType: false,
+      
       success: function (result) {
         Swal.fire({
           position: "center",
@@ -37,10 +44,10 @@ $(document).ready(function () {
           color: "#009000",
           confirmButtonColor: "#ff4757",
           showConfirmButton: false,
-          timer: 2000 // Duração do alerta
+          timer: 10000 // Duração do alerta
         }).then(() => {
           // Após o alerta, recarrega a página
-          location.reload();
+            location.reload();
         });
       },
       error: function (xhr) {

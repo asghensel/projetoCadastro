@@ -17,6 +17,30 @@ $user=$_SESSION['idUser'];
 $acao= $_POST['acao'];
 $idAtivo= $_POST['idAtivo'];
 $statusAtivo= $_POST['status'];
+$img = $_FILES['img'];
+
+if (isset($_FILES['img']) && $_FILES['img']['error'] == 0) {
+    // Defina o diretório de uploads
+    $diretorio = "../uploads/";
+    $arquivo = $_FILES['img'];
+    $nomeArquivo = time() . '_' . basename($arquivo['name']); // Nome único para o arquivo
+    $caminhoArquivo = $diretorio . $nomeArquivo;
+
+    // Verifica se o diretório existe, se não, cria
+    if (!is_dir($diretorio)) {
+        mkdir($diretorio, 0777, true);
+    }
+
+    // Move o arquivo para o diretório
+    if (move_uploaded_file($arquivo['tmp_name'], $caminhoArquivo)) {
+        $imagem_ativo = $caminhoArquivo; // Caminho completo do arquivo
+    } else {
+        echo "Erro ao fazer upload da imagem.";
+        exit();
+    }
+    var_dump($_FILES);
+    exit();
+}
 if($acao == 'inserir'){
     $query= "
     insert into ativo (
@@ -37,7 +61,7 @@ if($acao == 'inserir'){
                     '".$observacao_ativo."',
                     NOW(),
                     '".$user."'
-                    
+                   
                                 )
 
         ";
