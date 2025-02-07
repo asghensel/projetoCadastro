@@ -22,7 +22,7 @@ $img = $_FILES['img'];
 
 
 if($acao == 'inserir'){
-    $pasta_base = $_SERVER['DOCUMENT_ROOT'].'/aulasenac/projetocadastro/uploads';
+    $pasta_base = $_SERVER['DOCUMENT_ROOT'].'/aulasenac/projetocadastro/uploads/';
 
     if(!file_exists($pasta_base)){
         mkdir($pasta_base);

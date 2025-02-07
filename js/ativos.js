@@ -35,7 +35,7 @@ $(document).ready(function () {
       contentType: false,
       
       success: function (result) {
-        Swal.fire({
+        /*Swal.fire({
           position: "center",
           icon: "success",
           title: "<span style='color: #009000;'>Ativo cadastrado com sucesso</span>",
@@ -48,7 +48,8 @@ $(document).ready(function () {
         }).then(() => {
           // Após o alerta, recarrega a página
             location.reload();
-        });
+        });*/
+        alert(result);
       },
       error: function (xhr) {
         Swal.fire({
