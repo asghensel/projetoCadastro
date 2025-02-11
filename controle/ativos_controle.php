@@ -32,7 +32,7 @@ if($acao == 'inserir'){
     $quebraTipo = explode('/', $tipoImagem);
     $extensao = $quebraTipo[1];
 
-    $result = move_uploaded_file($img['tpm_name'],$pasta_base . $data . '.' . $extensao);
+    $result = move_uploaded_file($img['tmp_name'],$pasta_base . $data . '.' . $extensao);
     if($result == false){
         echo "falha ao mover o arquivo";
         exit();
@@ -92,7 +92,8 @@ if($acao == 'get_info'){
             quantidadeAtivo,
             idMarca,
             idTipo,
-            observacaoAtivo
+            observacaoAtivo,
+            urlImagem
         From
             ativo
         Where
@@ -104,26 +105,45 @@ if($acao == 'get_info'){
     exit();
 }
 
-    if($acao == 'update'){
-        $sql = "
-        update ativo set 
+if ($acao == 'update') {
+    $queryUpdate = "UPDATE 
+                            ativo 
+                    SET 
+                            descricaoAtivo = '$descricao', 
+                            quantidadeAtivo = '$quantidade_ativo', 
+                            idTipo = '$tipo_ativo', 
+                            idMarca = '$marca_ativo', 
+                            observacaoAtivo = '$observacao_ativo'";
 
-        descricaoAtivo = '$descricao',
-        quantidadeAtivo = '$quantidade_ativo',
-        idTipo = '$tipo_ativo',
-        idMarca = '$marca_ativo',
-        observacaoAtivo = '$observacao_ativo'
-        
+    if ($img && $img['error'] == 0) {
+        $pasta_base = $_SERVER['DOCUMENT_ROOT'].'/aulasenac/projetocadastro/uploads/';
+        $data = date("YmdHis");
+        $extensao = explode('/', $img['type'])[1];
 
-        where idAtivo=$idAtivo
-        
-        ";
-        $result = mysqli_query($conexao, $sql) or die(false);
-        if($result){
-            echo "Informações Alteradas";
-            
-        }
+
+        $sql_remove= "SELECT urlImagem FROM ativo WHERE idAtivo=$idAtivo";
+        $result_remove = mysqli_query($conexao,$sql_remove) or die(false);
+        $info = $result_remove-> fetch_all(MYSQLI_ASSOC);
+
+        $img_antiga = $_SERVER['DOCUMENT_ROOT']. '/'. $info[0]['urlImagem'];
+        unlink($img_antiga);
+
+      
+
+
+
+        if (move_uploaded_file($img['tmp_name'], $pasta_base . $data . '.' . $extensao)) {
+            $urlImagem = 'aulasenac/projetocadastro/uploads/' . $data . '.' . $extensao;
+            $queryUpdate .= ", urlImagem = '$urlImagem'";
+        }     
     }
+
+    $queryUpdate .= " WHERE idAtivo = $idAtivo";
+
+    if (mysqli_query($conexao, $queryUpdate)) {
+        echo "Informações Alteradas";
+    }
+}
 
     if ($acao == 'deletar') {
         $sql = "DELETE FROM ativo WHERE idAtivo = $idAtivo";

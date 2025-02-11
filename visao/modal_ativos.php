@@ -47,7 +47,11 @@
 
           <div class="mb-3">
   <label for="formFile" class="form-label">Adicionar imagem</label>
-  <input class="form-control" accept="image/png, image/jpeg, image/jpg" type="file" id="imgAtivo">
+  <input class="form-control" accept="image/png,image/WEBP, image/jpeg, image/jpg" type="file" id="imgAtivo" >
+          </div>
+          <div class="mb-3 div_previer" style="display:none;">
+  <label for="formFile" class="form-label">Preview imagem</label>
+                    <img style="width 150px; position:relative;left:20%;" alt="" id="previewImagem">
           </div>
         
       </div>

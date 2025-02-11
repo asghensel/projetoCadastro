@@ -35,7 +35,7 @@ $(document).ready(function () {
       contentType: false,
       
       success: function (result) {
-        /*Swal.fire({
+        Swal.fire({
           position: "center",
           icon: "success",
           title: "<span style='color: #009000;'>Ativo cadastrado com sucesso</span>",
@@ -44,12 +44,11 @@ $(document).ready(function () {
           color: "#009000",
           confirmButtonColor: "#ff4757",
           showConfirmButton: false,
-          timer: 10000 // Duração do alerta
+          timer: 2000 // Duração do alerta
         }).then(() => {
           // Após o alerta, recarrega a página
             location.reload();
-        });*/
-        alert(result);
+        });
       },
       error: function (xhr) {
         Swal.fire({
@@ -102,7 +101,12 @@ function editar(idAtivo){
       $("#marca").val(retorno[0]['idMarca']);
       $("#tipo").val(retorno[0]['idTipo']);
       $("#observacao").val(retorno[0]['observacaoAtivo']);
-      
+      if (retorno[0]['urlImagem']) {
+        $("#previewImagem").attr("src", window.location.protocol + "//" + window.location.host + '/' + retorno[0]['urlImagem']);
+        $(".div_previer").attr('style','display:block');
+      } else {
+        $(".div_previer").attr('style','display:none');
+      }
       console.log(result);
     }
 });
@@ -111,11 +115,38 @@ function editar(idAtivo){
 };
 
 function fechar_modal(){
-  $("#descricao").val('');
+      $("#descricao").val('');
       $("#quantidade").val('');
       $("#marca").val('');
       $("#tipo").val('');
       $("#observacao").val('');
+}   
+
+function verImagem(idAtivo) {
+  $.ajax({
+    type: 'POST',
+    url: "../controle/ativos_controle.php",
+    data: {
+      acao: 'get_info',
+      idAtivo: idAtivo
+    },
+    success: function(result) {
+      const retorno = JSON.parse(result);
+      if (retorno[0]['urlImagem']) {
+        $("#previewImagem").attr("src", window.location.protocol + "//" + window.location.host + '/' + retorno[0]['urlImagem']);
+        $(".div_previer").show();
+      } else {
+        $(".div_previer").hide();
+      }
+    },
+    error: function() {
+      Swal.fire({
+        icon: 'error',
+        title: 'Erro!',
+        text: 'Não foi possível carregar a imagem.'
+      });
+    }
+  });
 }
 
 

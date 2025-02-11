@@ -13,6 +13,7 @@ quantidadeAtivo,
 statusAtivo, 
 observacaoAtivo, 
 `dataCadastroAtivo`, 
+urlImagem,
 (SELECT descricaoMarca FROM marca m WHERE m.idMarca = a.idMarca) as marca,
 (SELECT descricaoTipo FROM tipo t WHERE t.idTipo = a.idTipo) as tipo,  
 (SELECT nomeUsuario FROM usuario u WHERE u.idUsuario = a.idUsuario) as usuario
@@ -40,7 +41,7 @@ $ativos = $result->fetch_all(MYSQLI_ASSOC);
 <div class="container">
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" onclick="fechar_modal()" data-bs-target="#exampleModal" id="modal">Cadastrar Modal</button>
 
-<div class="container">
+<div class="container" id="form">
 
 <table class="table">
 <thead>
@@ -52,7 +53,9 @@ $ativos = $result->fetch_all(MYSQLI_ASSOC);
     <th scope="col">Observação</th>
     <th scope="col">Data</th>
     <th scope="col">Usuario</th>
+    <th scope="col">Imagem</th>
     <th scope="col">Ações</th>
+    
     
   </tr>
 </thead>
@@ -75,7 +78,15 @@ $ativos = $result->fetch_all(MYSQLI_ASSOC);
     echo date('d/m/Y H:i:s', strtotime($dataCadastro)); 
     ?></td>
       <td><?php echo $ativo['usuario']; ?></td>
-    <td> 
+      <td>
+      <button data-bs-target="#modalImagens" data-bs-toggle="modal" type="button" id="modalImg" onclick="verImagem('<?php echo $ativo['idAtivo']; ?>')">
+            <img src="http://localhost:8080/<?php echo $ativo['urlImagem']; ?>" style="width: 90px; height: 90px; margin:auto;">
+      </button>
+
+      </td>
+    
+    
+      <td> 
       <div class="acoes" style="display: flex; justify-content: space-between;">
       <div class="muda_status">
           <?php
@@ -94,7 +105,7 @@ $ativos = $result->fetch_all(MYSQLI_ASSOC);
             }
           ?>
       </div>
-
+    
       <div class="edit">
       <i class="bi bi-pencil-square" onclick="editar('<?php echo $ativo['idAtivo'] ?>')"></i>
       </div>
@@ -123,6 +134,7 @@ $ativos = $result->fetch_all(MYSQLI_ASSOC);
 </div>
 <?php 
 include_once('modal_ativos.php');
+include_once('modal_imagens.php');
 ?>
 </div>
 </body>
