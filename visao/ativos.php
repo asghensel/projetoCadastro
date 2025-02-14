@@ -10,6 +10,7 @@ $tipos=busca_info_bd($conexao,'tipo');
 $sql="SELECT idAtivo, 
 descricaoAtivo, 
 quantidadeAtivo, 
+quantidadeMinima,
 statusAtivo, 
 observacaoAtivo, 
 `dataCadastroAtivo`, 
@@ -40,7 +41,10 @@ $ativos = $result->fetch_all(MYSQLI_ASSOC);
 
 <div class="container">
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" onclick="fechar_modal()" data-bs-target="#exampleModal" id="modal">Cadastrar Modal</button>
-
+<form method="GET" action="../controle/buscarProdutos.php" class="form-busca">
+    <input type="text" name="busca" placeholder="Buscar produto no Mercado Livre" required>
+    <button type="submit">Buscar</button>
+</form>
 <div class="container" id="form">
 
 <table class="table">
@@ -48,10 +52,11 @@ $ativos = $result->fetch_all(MYSQLI_ASSOC);
   <tr >
     <th scope="col">Descrição</th>
     <th scope="col">Quantidade</th>
+    <th scope="col">Qntd. Min.</th>
     <th scope="col">Marca</th>
     <th scope="col">Tipo</th>
-    <th scope="col">Observação</th>
-    <th scope="col">Data</th>
+    <th  id="obs" scope="col">Observação</th>
+    <th id="data" scope="col">Data</th>
     <th scope="col">Usuario</th>
     <th scope="col">Imagem</th>
     <th scope="col">Ações</th>
@@ -64,23 +69,22 @@ $ativos = $result->fetch_all(MYSQLI_ASSOC);
     foreach($ativos as $ativo){
         ?>
     <tr>
-      <td>
+
         
-        <?php echo $ativo['descricaoAtivo']; ?>
-       
-      </td>
-      <td><?php echo $ativo['quantidadeAtivo']; ?></td>
+      <td><?php echo $ativo['descricaoAtivo']; ?></td>
+      <td id="quantia"><?php echo $ativo['quantidadeAtivo']; ?></td>
+      <td id="quantia"><?php echo $ativo['quantidadeMinima']; ?></td>
       <td><?php echo $ativo['marca']; ?></td>
       <td><?php echo $ativo['tipo']; ?></td>
-      <td><?php echo $ativo['observacaoAtivo']; ?></td>
-      <td><?php 
+      <td id="obs"><?php echo $ativo['observacaoAtivo']; ?></td>
+      <td id="data"><?php 
     $dataCadastro = $ativo['dataCadastroAtivo'];
     echo date('d/m/Y H:i:s', strtotime($dataCadastro)); 
     ?></td>
       <td><?php echo $ativo['usuario']; ?></td>
       <td>
-      <button data-bs-target="#modalImagens" data-bs-toggle="modal" type="button" id="modalImg" onclick="verImagem('<?php echo $ativo['idAtivo']; ?>')">
-            <img src="http://localhost:8080/<?php echo $ativo['urlImagem']; ?>" style="width: 90px; height: 90px; margin:auto;">
+      <button data-bs-target="#modalImagens" data-bs-toggle="modal" type="button" id="modalImg" onclick="verImagem('<?php echo $ativo['urlImagem']; ?>')">
+            <img src="http://localhost:8080/<?php echo $ativo['urlImagem']; ?>" style="width: 90px; height: 90px; margin:auto;" id="imagemGrande">
       </button>
 
       </td>

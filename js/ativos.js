@@ -2,6 +2,7 @@ $(document).ready(function () {
   $("#salvar_info").click(function () {
     let descricao_ativo = $("#descricao").val();
     let quantidade_ativo = $("#quantidade").val();
+    let quantidadeMin_ativo = $("#quantidadeMin").val();
     let marca_ativo = $("#marca").val();
     let tipo_ativo = $("#tipo").val();
     let observacao_ativo = $("#observacao").val();
@@ -18,6 +19,7 @@ $(document).ready(function () {
     formData.append("acao", acao);
     formData.append("descricao", descricao_ativo);
     formData.append("quantidade", quantidade_ativo);
+    formData.append("quantidadeMin", quantidadeMin_ativo);
     formData.append("marca", marca_ativo);
     formData.append("tipo", tipo_ativo);
     formData.append("observacao", observacao_ativo);
@@ -98,6 +100,7 @@ function editar(idAtivo){
       $('#modal').click();
       $("#descricao").val(retorno[0]['descricaoAtivo']);
       $("#quantidade").val(retorno[0]['quantidadeAtivo']);
+      $("#quantidadeMin").val(retorno[0]['quantidadeMinima']);
       $("#marca").val(retorno[0]['idMarca']);
       $("#tipo").val(retorno[0]['idTipo']);
       $("#observacao").val(retorno[0]['observacaoAtivo']);
@@ -117,38 +120,19 @@ function editar(idAtivo){
 function fechar_modal(){
       $("#descricao").val('');
       $("#quantidade").val('');
+      $('#quantidadeMin').val('');
       $("#marca").val('');
       $("#tipo").val('');
       $("#observacao").val('');
+      $('#previewImagem').attr("src");;
 }   
 
-function verImagem(idAtivo) {
-  $.ajax({
-    type: 'POST',
-    url: "../controle/ativos_controle.php",
-    data: {
-      acao: 'get_info',
-      idAtivo: idAtivo
-    },
-    success: function(result) {
-      const retorno = JSON.parse(result);
-      if (retorno[0]['urlImagem']) {
-        $("#previewImagem").attr("src", window.location.protocol + "//" + window.location.host + '/' + retorno[0]['urlImagem']);
-        $(".div_previer").show();
-      } else {
-        $(".div_previer").hide();
-      }
-    },
-    error: function() {
-      Swal.fire({
-        icon: 'error',
-        title: 'Erro!',
-        text: 'Não foi possível carregar a imagem.'
-      });
-    }
-  });
+function verImagem(urlImagem) {
+        $("#previewGrande").attr("src", window.location.protocol + "//" + window.location.host + '/' + urlImagem);
 }
-
+    
+   
+ 
 
 
 function deletar(idAtivo) {

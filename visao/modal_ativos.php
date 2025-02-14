@@ -1,5 +1,15 @@
 
+<style>
 
+  #previewImagem{
+    width: 150px;
+     position:relative;
+     left:20%;
+  }
+
+
+
+</style>
 
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -18,6 +28,12 @@
             <label for="recipient-name" class="col-form-label">Quantidade</label>
             <input type="number" class="form-control" id="quantidade" required >
           </div>
+
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">Quantidade Minima</label>
+            <input type="number" class="form-control" id="quantidadeMin" required >
+          </div>
+
           <div class="mb-1">
             <label for="recipient-name" class="col-form-label">Marca</label>
                   <select class="form-select" id="marca" required>
@@ -51,7 +67,7 @@
           </div>
           <div class="mb-3 div_previer" style="display:none;">
   <label for="formFile" class="form-label">Preview imagem</label>
-                    <img style="width 150px; position:relative;left:20%;" alt="" id="previewImagem">
+                    <img alt="" id="previewImagem">
           </div>
         
       </div>

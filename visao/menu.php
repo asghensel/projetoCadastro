@@ -38,6 +38,7 @@ include_once('cabecalho.php');
                             <a href="marcas.php">Marcas</a>
                             <a href="tipos.php">Tipos</a>
                         </div>
+                        
                     </div>
                 </li>
                 <li><a href="movimentacao_ativo.php"><div class="navbar-item" data-menu="menu4">Movimentação</div></a></li>

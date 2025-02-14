@@ -10,6 +10,7 @@ include('controle_session.php');
 
 $descricao = $_POST['descricao'];
 $quantidade_ativo = $_POST['quantidade'];
+$quantidadeMin_ativo = $_POST['quantidadeMin'];
 $marca_ativo= $_POST['marca'];
 $tipo_ativo = $_POST['tipo'];
 $observacao_ativo = $_POST['observacao'];
@@ -45,6 +46,7 @@ if($acao == 'inserir'){
     insert into ativo (
                     descricaoAtivo,
                     quantidadeAtivo,
+                    quantidadeMinima,
                     statusAtivo,
                     idMarca,
                     idTipo,
@@ -55,6 +57,7 @@ if($acao == 'inserir'){
                     )values(
                     '".$descricao."',
                     '".$quantidade_ativo."',
+                    '".$quantidadeMin_ativo."',
                     'S',
                     '".$marca_ativo."',
                     '".$tipo_ativo."',
@@ -90,6 +93,7 @@ if($acao == 'get_info'){
         Select 
             descricaoAtivo,
             quantidadeAtivo,
+            quantidadeMinima,
             idMarca,
             idTipo,
             observacaoAtivo,
@@ -111,6 +115,7 @@ if ($acao == 'update') {
                     SET 
                             descricaoAtivo = '$descricao', 
                             quantidadeAtivo = '$quantidade_ativo', 
+                            quantidadeMinima= '$quantidadeMin_ativo',
                             idTipo = '$tipo_ativo', 
                             idMarca = '$marca_ativo', 
                             observacaoAtivo = '$observacao_ativo'";

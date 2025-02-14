@@ -1,83 +1,270 @@
-/* Estilo da Navbar */
-.navbar {
-    background-color: #007bff; /* Azul padrão */
-    color: #fff;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 30px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  .navbar .logo a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 22px;
-    font-weight: bold;
-  }
-  
-  .navbar .nav-links {
-    list-style: none;
-    display: flex;
+@import url(//codepen.io/chrisdothtml/pen/ojLzJK.css);
+
+/* Navbar */
+* {
     margin: 0;
     padding: 0;
-  }
-  
-  .navbar .nav-links li {
-    margin-left: 20px;
-  }
-  
-  .navbar .nav-links a {
-    color: #fff;
-    text-decoration: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-  }
-  
-  .navbar .nav-links a:hover {
-    background-color: #0056b3; /* Azul escuro */
-  }
-  
-  /* Conteúdo Principal */
-  .container {
-    background: #ffffff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin: 30px auto;
-    max-width: 800px;
-    text-align: center;
-  }
-  
-  h1 {
-    color: #007bff;
-    margin-bottom: 20px;
-  }
-  
-  /* Grid */
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-  }
-  
-  .btn-primary {
-    display: inline-block;
-    text-decoration: none;
-    padding: 15px 20px;
-    background-color: #007bff; /* Azul padrão */
-    color: #fff;
-    font-size: 18px;
-    font-weight: bold;
-    border-radius: 8px;
-    transition: background-color 0.3s ease, transform 0.2s;
-  }
-  
-  .btn-primary:hover {
-    background-color: #0056b3; /* Azul escuro */
-    transform: translateY(-3px);
-  }
-  
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
-  
+body {
+    background-color: #f9f9f9;
+}
+
+nav {
+    background-color: #1a1a1a;
+    
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+}
+
+.navbar li {
+    position: relative;
+    padding: 10px 20px;
+}
+
+.navbar img {
+    height: 120px;
+    margin-right: 12em;
+}
+
+.navbar-item {
+    color: #e0e0e0;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 18px 28px;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar-item:hover {
+    background-color: #007acc;
+    color: #ffffff;
+    border-color: #007acc;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Submenu */
+.submenu {
+    display: none;
+    position: absolute;
+    top: 65px;
+    left: 0;
+    background-color: #262626;
+    padding: 12px 0;
+    border-radius: 6px;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+    min-width: 220px;
+}
+
+.submenu a {
+    display: block;
+    padding: 12px 20px;
+    color: #e0e0e0;
+    transition: background 0.3s ease;
+    font-size: 18px;
+}
+
+.submenu a:hover {
+    background-color: #333333;
+    color: #ffffff;
+}
+
+.navbar-item:hover .submenu {
+    display: block;
+}
+
+/* Logout */
+#logout a {
+    color: #ff4c4c;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 16px 24px;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-size: 20px;
+}
+
+#logout a:hover {
+    background-color: #cc0000;
+    color: #ffffff;
+    border-color: #cc0000;
+}
+
+
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar li {
+        width: 100%;
+    }
+
+    .submenu {
+        position: relative;
+        top: 0;
+    }
+}
+
+
+/*separação das box e dos */
+
+
+
+
+
+
+/*botões;*/
+
+.button {
+  flex: 1;
+  text-align: center;
+}
+
+.button {
+  display: flex;
+  background-color: #c0392b;
+  width: 300px;
+  height: 100px;
+  line-height: 100px;
+  margin: auto;
+  color: #fff;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 5px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
+  transition: all 0.25s cubic-bezier(0.31, -0.105, 0.43, 1.4);
+}
+
+#login{
+  background-color: #007acc;
+}
+
+#login span:after {
+  content: "";
+  background-color: #ff0000;
+  width: 2px;
+  height: 70%;
+  position: absolute;
+  top: 15%;
+  right: -1px;
+}
+
+.button span,
+.button .icon {
+  display: block;
+  height: 100%;
+  text-align: center;
+  position: absolute;
+  top: 0;
+}
+.button span {
+  width: 72%;
+  line-height: inherit;
+  font-size: 22px;
+  text-transform: uppercase;
+  left: 0;
+  transition: all 0.25s cubic-bezier(0.31, -0.105, 0.43, 1.4);
+}
+.button span:after {
+  content: "";
+  background-color: #faf6f6;
+  width: 2px;
+  height: 70%;
+  position: absolute;
+  top: 15%;
+  right: -1px;
+}
+.button .icon {
+  width: 28%;
+  right: 0;
+  transition: all 0.25s cubic-bezier(0.31, -0.105, 0.43, 1.4);
+}
+.button .icon .fa {
+  font-size: 30px;
+  vertical-align: middle;
+  transition: all 0.25s cubic-bezier(0.31, -0.105, 0.43, 1.4), height 0.25s ease;
+}
+.button .icon .fa-remove {
+  height: 36px;
+}
+.button .icon .fa-check {
+  display: none;
+}
+.button.success span, .button:hover span {
+  left: -72%;
+  opacity: 0;
+}
+.button.success .icon, .button:hover .icon {
+  width: 100%;
+}
+.button.success .icon .fa, .button:hover .icon .fa {
+  font-size: 45px;
+}
+.button.success {
+  background-color: #27ae60;
+}
+.button.success .icon .fa-remove {
+  display: none;
+}
+.button.success .icon .fa-check {
+  display: inline-block;
+}
+.button:hover {
+  opacity: 0.9;
+}
+.button:hover .icon .fa-remove {
+  height: 46px;
+}
+.button:active {
+  opacity: 1;
+}
+
+#login{
+
+  background-color: #007acc;
+}
+#cadastro{
+
+  background-color: #007acc;
+}
+#usuario{
+
+  background-color: #007acc;
+}
+#ativos{
+
+  background-color: #007acc;
+}
+#movimentacoes{
+
+  background-color: #007acc;
+}
