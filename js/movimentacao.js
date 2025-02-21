@@ -27,7 +27,8 @@ $(document).ready(function () {
           idMov: idMov
         },
         success: function (result) {
-          if(result == "Sucesso"){
+          console.log(result);
+          if(result.trim() == "Sucesso"){
           Swal.fire({
             position: "center",
             icon: "success",

@@ -136,135 +136,286 @@ nav {
 
 
 
-
-/*botões;*/
-
-.button {
-  flex: 1;
-  text-align: center;
+.container{
+  width: 90% !important;
+  max-width: 90% !important;
 }
 
-.button {
+
+.box1 {
+  background-color: beige;
+  max-width: 1000px;
+  max-height: 2000px;
+  
+  
+ 
+}
+
+.box2 {
+  background-color: rgb(255, 255, 0);
+  max-width: 1000px;
+  max-height: 2500px;
+ 
+}
+
+.imagens{
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+
+.carrossel {
+  overflow: hidden;
+  width: 40rem;
+  border-radius: 0.6rem;
+  border: 0.5rem solid;
+  border-color: rgb(35, 192, 11);
+  margin: auto;
+}
+
+.carroca{
   display: flex;
+  transition: transform 1.0s ease-in-out;
+  transform: translateX(0);   
+}
+
+
+
+/*Botões*/
+
+
+/* Reset */
+@import url(//codepen.io/chrisdothtml/pen/ojLzJK.css);
+
+/* Variáveis */
+:root {
+  --speed: 0.25s;
+  --transition: all 0.25s cubic-bezier(0.310, -0.105, 0.430, 1.400);
+}
+
+/* Main Styles */
+#login {
+  display: block;
   background-color: #c0392b;
   width: 300px;
   height: 100px;
   line-height: 100px;
-  margin: auto;
+  margin: 20px auto; /* Altera aqui para centralizar apenas horizontalmente */
   color: #fff;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
   cursor: pointer;
   overflow: hidden;
   border-radius: 5px;
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
-  transition: all 0.25s cubic-bezier(0.31, -0.105, 0.43, 1.4);
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, .3);
+  transition: var(--transition);
+  position: relative; /* Altere para relative para manter o posicionamento interno */
 }
 
-#login{
-  background-color: #007acc;
-}
-
-#login span:after {
-  content: "";
-  background-color: #ff0000;
-  width: 2px;
-  height: 70%;
-  position: absolute;
-  top: 15%;
-  right: -1px;
-}
-
-.button span,
-.button .icon {
+#login span,
+#login .icon {
   display: block;
   height: 100%;
   text-align: center;
   position: absolute;
   top: 0;
 }
-.button span {
+
+#login span {
   width: 72%;
   line-height: inherit;
   font-size: 22px;
   text-transform: uppercase;
   left: 0;
-  transition: all 0.25s cubic-bezier(0.31, -0.105, 0.43, 1.4);
+  transition: var(--transition);
 }
-.button span:after {
-  content: "";
-  background-color: #faf6f6;
+
+#login span:after {
+  content: '';
+  background-color: #a53125;
   width: 2px;
   height: 70%;
   position: absolute;
   top: 15%;
   right: -1px;
 }
-.button .icon {
+
+#login .icon {
   width: 28%;
   right: 0;
-  transition: all 0.25s cubic-bezier(0.31, -0.105, 0.43, 1.4);
+  transition: var(--transition);
 }
-.button .icon .fa {
+
+#login .icon .fa {
   font-size: 30px;
   vertical-align: middle;
-  transition: all 0.25s cubic-bezier(0.31, -0.105, 0.43, 1.4), height 0.25s ease;
+  transition: var(--transition), height var(--speed) ease;
 }
-.button .icon .fa-remove {
+
+#login .icon .fa-remove {
   height: 36px;
 }
-.button .icon .fa-check {
+
+#login .icon .fa-check {
   display: none;
 }
-.button.success span, .button:hover span {
+
+#login.success span,
+#login:hover span {
   left: -72%;
   opacity: 0;
 }
-.button.success .icon, .button:hover .icon {
+
+#login.success .icon,
+#login:hover .icon {
   width: 100%;
 }
-.button.success .icon .fa, .button:hover .icon .fa {
+
+#login.success .icon .fa,
+#login:hover .icon .fa {
   font-size: 45px;
 }
-.button.success {
+
+#login.success {
   background-color: #27ae60;
 }
-.button.success .icon .fa-remove {
+
+#login.success .icon .fa-remove {
   display: none;
 }
-.button.success .icon .fa-check {
+
+#login.success .icon .fa-check {
   display: inline-block;
 }
-.button:hover {
-  opacity: 0.9;
+
+#login:hover {
+  opacity: .9;
 }
-.button:hover .icon .fa-remove {
+
+#login:hover .icon .fa-remove {
   height: 46px;
 }
-.button:active {
+
+#login:active {
   opacity: 1;
 }
 
-#login{
 
-  background-color: #007acc;
-}
-#cadastro{
 
-  background-color: #007acc;
-}
-#usuario{
 
-  background-color: #007acc;
-}
-#ativos{
 
-  background-color: #007acc;
+/* Variáveis */
+:root {
+  --speed: 0.25s;
+  --transition: all 0.25s cubic-bezier(0.310, -0.105, 0.430, 1.400);
 }
-#movimentacoes{
 
-  background-color: #007acc;
+/* Main Styles */
+#cadastro {
+  display: block;
+  background-color: #c0392b;
+  width: 300px;
+  height: 100px;
+  line-height: 100px;
+  margin: 20px auto; /* Altera aqui para centralizar apenas horizontalmente */
+  color: #fff;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 5px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, .3);
+  transition: var(--transition);
+  position: relative; /* Altere para relative para manter o posicionamento interno */
 }
+
+#cadastro span,
+#cadastro .icon {
+  display: block;
+  height: 100%;
+  text-align: center;
+  position: absolute;
+  top: 0;
+}
+
+#cadastro span {
+  width: 72%;
+  line-height: inherit;
+  font-size: 22px;
+  text-transform: uppercase;
+  left: 0;
+  transition: var(--transition);
+}
+
+#cadastro span:after {
+  content: '';
+  background-color: #a53125;
+  width: 2px;
+  height: 70%;
+  position: absolute;
+  top: 15%;
+  right: -1px;
+}
+
+#cadastro .icon {
+  width: 28%;
+  right: 0;
+  transition: var(--transition);
+}
+
+#cadastro .icon .fa {
+  font-size: 30px;
+  vertical-align: middle;
+  transition: var(--transition), height var(--speed) ease;
+}
+
+#cadastro .icon .fa-remove {
+  height: 36px;
+}
+
+#cadastro .icon .fa-check {
+  display: none;
+}
+
+#cadastro.success span,
+#cadastro:hover span {
+  left: -72%;
+  opacity: 0;
+}
+
+#cadastro.success .icon,
+#cadastro:hover .icon {
+  width: 100%;
+}
+
+#cadastro.success .icon .fa,
+#cadastro:hover .icon .fa {
+  font-size: 45px;
+}
+
+#cadastro.success {
+  background-color: #27ae60;
+}
+
+#cadastro.success .icon .fa-remove {
+  display: none;
+}
+
+#cadastro.success .icon .fa-check {
+  display: inline-block;
+}
+
+#cadastro:hover {
+  opacity: .9;
+}
+
+#cadastro:hover .icon .fa-remove {
+  height: 46px;
+}
+
+#cadastro:active {
+  opacity: 1;
+}
+
+
+
+
+
+

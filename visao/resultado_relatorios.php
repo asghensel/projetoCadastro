@@ -72,6 +72,7 @@ $sql="
 
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -84,74 +85,76 @@ $sql="
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
     <script src="https://cdn.datatables.net/buttons/3.2.1/js/buttons.html5.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/3.2.1/js/buttons.print.min.js"></script>
-    
+
     <link rel="stylesheet" href="https://cdn.datatables.net/2.2.1/css/dataTables.dataTables.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/3.2.1/css/buttons.dataTables.css">
     <link rel="stylesheet" href="../css/resultadoRelatorio.css">
     <script src="../js/relatorios.js"></script>
     <title>Cadastro_ativos</title>
 </head>
+
 <body>
 
-<div class="container">
-    <div class="grid-container">
-<h2><b>Relatório Gerado</b></h2>
-<button type="submit" class="btn btn-secondary" ><a href="relatorios.php">Voltar</a></button>
-            </div>
-            <hr>
-<div class="container" id="tabelona">
+    <div class="container">
+        <div class="grid-container">
+            <h2><b>Relatório Gerado</b></h2>
+            <button type="submit" class="btn btn-secondary"><a href="relatorios.php">Voltar</a></button>
+        </div>
+        <hr>
+        <div class="container" id="tabelona">
 
-<table class="display" id="relatorio" >
-<thead>
-  <tr >
-    <th scope="col">Ativo</th>
-    <th scope="col">Usuario</th>
-    <th scope="col">Tipo</th>
-    <th scope="col">Qtd. Uso</th>
-    <th scope="col">Qtd. Antiga</th>
-    <th scope="col">Qtd. Total</th>
-    <th scope="col">Loc.Origem</th>
-    <th scope="col">Loc.Destino</th>
-    <th scope="col">Data</th>
-    <th scope="col">Descrição</th>
-  </tr>
-</thead>
-<tbody>
-    <?php
+            <table class="display" id="relatorio">
+                <thead>
+                    <tr>
+                        <th scope="col">Ativo</th>
+                        <th scope="col">Usuario</th>
+                        <th scope="col">Tipo</th>
+                        <th scope="col">Qtd. Uso</th>
+                        <th scope="col">Qtd. Antiga</th>
+                        <th scope="col">Qtd. Total</th>
+                        <th scope="col">Loc.Origem</th>
+                        <th scope="col">Loc.Destino</th>
+                        <th scope="col">Data</th>
+                        <th scope="col">Descrição</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
     foreach($movimentacoes as $movimentacao){
         ?>
-    <tr>
-      <td><?php echo $movimentacao['ativo']; ?></td>
-      <td><?php echo $movimentacao['usuario']; ?></td>
-      <td><?php echo $movimentacao['tipoMovimentacao']; ?></td>
-      <td><?php echo $movimentacao['quantidadeUso']; ?></td>
-      <td><?php echo $movimentacao['quantidadeMov']; ?></td>
-      <td><?php echo $movimentacao['quantidadeTotalAtivo']; ?></td>
-      <td><?php echo $movimentacao['localOrigem']; ?></td>
-      <td><?php echo $movimentacao['localDestino']; ?></td>
-      <td><?php 
+                    <tr>
+                        <td><?php echo $movimentacao['ativo']; ?></td>
+                        <td><?php echo $movimentacao['usuario']; ?></td>
+                        <td><?php echo $movimentacao['tipoMovimentacao']; ?></td>
+                        <td><?php echo $movimentacao['quantidadeUso']; ?></td>
+                        <td><?php echo $movimentacao['quantidadeMov']; ?></td>
+                        <td><?php echo $movimentacao['quantidadeTotalAtivo']; ?></td>
+                        <td><?php echo $movimentacao['localOrigem']; ?></td>
+                        <td><?php echo $movimentacao['localDestino']; ?></td>
+                        <td><?php 
     $dataCadastro = $movimentacao['dataMovimentacao'];
     echo date('d/m/Y H:i:s', strtotime($dataCadastro)); 
     ?></td>
-      <td><?php echo $movimentacao['descricaoMovimentacao']; ?></td>
-    
-          </tr>
-        
-    
-        
-    
-    <?php
+                        <td><?php echo $movimentacao['descricaoMovimentacao']; ?></td>
+
+                    </tr>
+
+
+
+
+                    <?php
 }
 ?>
-</div>
+        </div>
 
-  </tbody>
-  </table>
+        </tbody>
+        </table>
 
-<input type="hidden" id="idMovimentacao" value="">
+        <input type="hidden" id="idMovimentacao" value="">
 
-</div>
+    </div>
 
-</div>
+    </div>
 </body>
+
 </html>

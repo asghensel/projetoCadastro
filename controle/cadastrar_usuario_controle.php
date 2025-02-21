@@ -18,7 +18,7 @@ $query= "
                     senhaUsuario,
                     turmaCadastro,  
                     dataCadastro,
-                    cargoUsuario
+                    admin
                     )values(
                     '".$nome."',
                     '".$usuario."',

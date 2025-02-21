@@ -124,7 +124,7 @@ function fechar_modal(){
       $("#marca").val('');
       $("#tipo").val('');
       $("#observacao").val('');
-      $('#previewImagem').attr("src");;
+      $(".div_previer").attr('style','display:none');
 }   
 
 function verImagem(urlImagem) {

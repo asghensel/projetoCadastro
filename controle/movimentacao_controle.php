@@ -99,7 +99,7 @@ $queryUpdate = "
                 '".$destinoMov."',
                 now(),
                 '".$descricaoMov."',
-                '".$quantidadeUso."',
+                '".$totalMov."',
                 'S',
                 '".$tipo_mov."',
                 '".$quantidadeMov."'
@@ -108,7 +108,7 @@ $queryUpdate = "
 
 $result = mysqli_query($conexao,$query) or die(false);
 if($result){
-    echo "Movimentação efetuada";
+    echo "Sucesso";
 }else{
     echo "erro";
 }
@@ -117,5 +117,3 @@ if($result){
 
 
 ?>
-
-

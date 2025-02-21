@@ -29,6 +29,7 @@ $ativos = $result->fetch_all(MYSQLI_ASSOC);
 
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -37,109 +38,118 @@ $ativos = $result->fetch_all(MYSQLI_ASSOC);
     <script src="../js/ativos.js"></script>
     <title>Cadastro_ativos</title>
 </head>
+
 <body>
 
-<div class="container">
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" onclick="fechar_modal()" data-bs-target="#exampleModal" id="modal">Cadastrar Modal</button>
-<form method="GET" action="../controle/buscarProdutos.php" class="form-busca">
-    <input type="text" name="busca" placeholder="Buscar produto no Mercado Livre" required>
-    <button type="submit">Buscar</button>
-</form>
-<div class="container" id="form">
+    <div class="container">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" onclick="fechar_modal()"
+            data-bs-target="#exampleModal" id="modal">Cadastrar Modal</button>
 
-<table class="table">
-<thead>
-  <tr >
-    <th scope="col">Descrição</th>
-    <th scope="col">Quantidade</th>
-    <th scope="col">Qntd. Min.</th>
-    <th scope="col">Marca</th>
-    <th scope="col">Tipo</th>
-    <th  id="obs" scope="col">Observação</th>
-    <th id="data" scope="col">Data</th>
-    <th scope="col">Usuario</th>
-    <th scope="col">Imagem</th>
-    <th scope="col">Ações</th>
-    
-    
-  </tr>
-</thead>
-<tbody>
-    <?php
+        <form method="GET" action="../controle/buscarProdutos.php" class="form-busca">
+            <input type="text" name="busca" placeholder="Buscar produto no Mercado Livre" required>
+            <button type="submit">Buscar</button>
+        </form>
+
+        <div class="container" id="form">
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Descrição</th>
+                        <th scope="col">Quantidade</th>
+                        <th scope="col">Qntd. Min.</th>
+                        <th scope="col">Marca</th>
+                        <th scope="col">Tipo</th>
+                        <th id="obs" scope="col">Observação</th>
+                        <th id="data" scope="col">Data</th>
+                        <th scope="col">Usuario</th>
+                        <th scope="col">Imagem</th>
+                        <th scope="col">Ações</th>
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
     foreach($ativos as $ativo){
         ?>
-    <tr>
+                    <tr>
 
-        
-      <td><?php echo $ativo['descricaoAtivo']; ?></td>
-      <td id="quantia"><?php echo $ativo['quantidadeAtivo']; ?></td>
-      <td id="quantia"><?php echo $ativo['quantidadeMinima']; ?></td>
-      <td><?php echo $ativo['marca']; ?></td>
-      <td><?php echo $ativo['tipo']; ?></td>
-      <td id="obs"><?php echo $ativo['observacaoAtivo']; ?></td>
-      <td id="data"><?php 
+
+                        <td><?php echo $ativo['descricaoAtivo']; ?></td>
+                        <td id="quantia"><?php echo $ativo['quantidadeAtivo']; ?></td>
+                        <td id="quantia"><?php echo $ativo['quantidadeMinima']; ?></td>
+                        <td><?php echo $ativo['marca']; ?></td>
+                        <td><?php echo $ativo['tipo']; ?></td>
+                        <td id="obs"><?php echo $ativo['observacaoAtivo']; ?></td>
+                        <td id="data"><?php 
     $dataCadastro = $ativo['dataCadastroAtivo'];
     echo date('d/m/Y H:i:s', strtotime($dataCadastro)); 
     ?></td>
-      <td><?php echo $ativo['usuario']; ?></td>
-      <td>
-      <button data-bs-target="#modalImagens" data-bs-toggle="modal" type="button" id="modalImg" onclick="verImagem('<?php echo $ativo['urlImagem']; ?>')">
-            <img src="http://localhost:8080/<?php echo $ativo['urlImagem']; ?>" style="width: 90px; height: 90px; margin:auto;" id="imagemGrande">
-      </button>
+                        <td><?php echo $ativo['usuario']; ?></td>
+                        <td>
+                            <button data-bs-target="#modalImagens" data-bs-toggle="modal" type="button" id="modalImg"
+                                onclick="verImagem('<?php echo $ativo['urlImagem']; ?>')">
+                                <img src="http://localhost:8080/<?php echo $ativo['urlImagem']; ?>"
+                                    style="width: 90px; height: 90px; margin:auto;" id="imagemGrande">
+                            </button>
 
-      </td>
-    
-    
-      <td> 
-      <div class="acoes" style="display: flex; justify-content: space-between;">
-      <div class="muda_status">
-          <?php
+                        </td>
+
+
+                        <td>
+                            <div class="acoes" style="display: flex; justify-content: space-between;">
+                                <div class="muda_status">
+                                    <?php
             if($ativo['statusAtivo']=="S"){
               ?>
-              <div class="inativo" onclick="muda_status('N', '<?php echo $ativo['idAtivo'] ?>')">
-              <i class="bi bi-toggle-on" ></i>
-              </div>
-          <?php      
+                                    <div class="inativo" onclick="muda_status('N', '<?php echo $ativo['idAtivo'] ?>')">
+                                        <i class="bi bi-toggle-on"></i>
+                                    </div>
+                                    <?php      
             }else{
-               ?> 
-              <div class="ativo" onclick="muda_status('S', '<?php echo $ativo['idAtivo'] ?>')">
-                <i class="bi bi-toggle-off"></i>
-              </div>
-              <?php
+               ?>
+                                    <div class="ativo" onclick="muda_status('S', '<?php echo $ativo['idAtivo'] ?>')">
+                                        <i class="bi bi-toggle-off"></i>
+                                    </div>
+                                    <?php
             }
           ?>
-      </div>
-    
-      <div class="edit">
-      <i class="bi bi-pencil-square" onclick="editar('<?php echo $ativo['idAtivo'] ?>')"></i>
-      </div>
+                                </div>
 
-      <div class="trash">
-      <i class="bi bi-trash" onclick="deletar('<?php echo $ativo['idAtivo'] ?>')"></i>
-      </div>
+                                <div class="edit">
+                                    <i class="bi bi-pencil-square"
+                                        onclick="editar('<?php echo $ativo['idAtivo'] ?>')"></i>
+                                </div>
 
-    </td>
-          </tr>
-        
-    
-        
-    
-    <?php
+                                <div class="trash">
+                                    <i class="bi bi-trash" onclick="deletar('<?php echo $ativo['idAtivo'] ?>')"></i>
+                                </div>
+
+                        </td>
+                    </tr>
+
+
+
+
+                    <?php
 }
 ?>
-</div>
+        </div>
 
-  </tbody>
-  </table>
+        </tbody>
+        </table>
 
+        <a href="busca_prod_ml.php"><button type="button" class="btn btn-primary">Reposição</button></a>
 
-<input type="hidden" id="idAtivo" value="">
+        <input type="hidden" id="idAtivo" value="">
 
-</div>
-<?php 
+    </div>
+    <?php 
 include_once('modal_ativos.php');
 include_once('modal_imagens.php');
 ?>
-</div>
+    </div>
 </body>
+
 </html>

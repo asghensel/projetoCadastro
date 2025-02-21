@@ -30,6 +30,7 @@ $movimentacoes = $result->fetch_all(MYSQLI_ASSOC);
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -38,68 +39,71 @@ $movimentacoes = $result->fetch_all(MYSQLI_ASSOC);
     <script src="../js/movimentacao.js"></script>
     <title>Cadastro_ativos</title>
 </head>
+
 <body>
 
-<div class="container">
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" onclick="fechar_modal()" data-bs-target="#exampleModal" id="modal">Cadastrar Movimentação</button>
+    <div class="container">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" onclick="fechar_modal()"
+            data-bs-target="#exampleModal" id="modal">Cadastrar Movimentação</button>
 
-<div class="container">
+        <div class="container">
 
-<table class="table">
-<thead>
-  <tr >
-    <th scope="col">Ativo</th>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Ativo</th>
 
-    <th scope="col">Tipo</th>
-    <th scope="col">Qtd. Uso</th>
-    <th scope="col">Qtd. Antiga</th>
-    <th scope="col">Qtd. Total</th>
-    <th scope="col">Loc.Origem</th>
-    <th scope="col">Loc.Destino</th>
-    <th scope="col">Data</th>
-    <th scope="col">Descrição</th>
-   
-    
-    
-  </tr>
-</thead>
-<tbody>
-    <?php
+                        <th scope="col">Tipo</th>
+                        <th scope="col">Qtd. Uso</th>
+                        <th scope="col">Qtd. Antiga</th>
+                        <th scope="col">Qtd. Total</th>
+                        <th scope="col">Loc.Origem</th>
+                        <th scope="col">Loc.Destino</th>
+                        <th scope="col">Data</th>
+                        <th scope="col">Descrição</th>
+
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
     foreach($movimentacoes as $movimentacao){
         ?>
-    <tr>
-      <td><?php echo $movimentacao['ativo']; ?></td>
-      <td><?php echo $movimentacao['tipoMovimentacao']; ?></td>
-      <td><?php echo $movimentacao['quantidadeUso']; ?></td>
-      <td><?php echo $movimentacao['quantidadeMov']; ?></td>
-      <td><?php echo $movimentacao['quantidadeTotalAtivo']; ?></td>
-      <td><?php echo $movimentacao['localOrigem']; ?></td>
-      <td><?php echo $movimentacao['localDestino']; ?></td>
-      <td><?php 
+                    <tr>
+                        <td><?php echo $movimentacao['ativo']; ?></td>
+                        <td><?php echo $movimentacao['tipoMovimentacao']; ?></td>
+                        <td><?php echo $movimentacao['quantidadeUso']; ?></td>
+                        <td><?php echo $movimentacao['quantidadeMov']; ?></td>
+                        <td><?php echo $movimentacao['quantidadeTotalAtivo']; ?></td>
+                        <td><?php echo $movimentacao['localOrigem']; ?></td>
+                        <td><?php echo $movimentacao['localDestino']; ?></td>
+                        <td><?php 
     $dataCadastro = $movimentacao['dataMovimentacao'];
     echo date('d/m/Y H:i:s', strtotime($dataCadastro)); 
     ?></td>
-      <td><?php echo $movimentacao['descricaoMovimentacao']; ?></td>
-    
-          </tr>
-        
-    
-        
-    
-    <?php
+                        <td><?php echo $movimentacao['descricaoMovimentacao']; ?></td>
+
+                    </tr>
+
+
+
+
+                    <?php
 }
 ?>
-</div>
+        </div>
 
-  </tbody>
-  </table>
+        </tbody>
+        </table>
 
-<input type="hidden" id="idMovimentacao" value="">
+        <input type="hidden" id="idMovimentacao" value="">
 
-</div>
-<?php 
+    </div>
+    <?php 
 include_once('modal_movimentacao.php');
 ?>
-</div>
+    </div>
 </body>
+
 </html>
