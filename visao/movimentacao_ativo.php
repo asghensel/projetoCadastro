@@ -1,13 +1,14 @@
-<?php 
+<?php
 include_once('../controle/controle_session.php');
 include_once('cabecalho.php');
-$title="Movimentações";
+$title = "Movimentações";
 include('menu.php');
+
 include_once('../controle/funcoes.php');
 include_once('../modelo/conexao.php');
 
-$ativos=busca_info_bd($conexao,'ativo');
-$sql="SELECT idMovimentacao, 
+$ativos = busca_info_bd($conexao, 'ativo');
+$sql = "SELECT idMovimentacao, 
 descricaoMovimentacao, 
 quantidadeMov, 
 quantidadeUso,
@@ -68,30 +69,30 @@ $movimentacoes = $result->fetch_all(MYSQLI_ASSOC);
                 </thead>
                 <tbody>
                     <?php
-    foreach($movimentacoes as $movimentacao){
-        ?>
-                    <tr>
-                        <td><?php echo $movimentacao['ativo']; ?></td>
-                        <td><?php echo $movimentacao['tipoMovimentacao']; ?></td>
-                        <td><?php echo $movimentacao['quantidadeUso']; ?></td>
-                        <td><?php echo $movimentacao['quantidadeMov']; ?></td>
-                        <td><?php echo $movimentacao['quantidadeTotalAtivo']; ?></td>
-                        <td><?php echo $movimentacao['localOrigem']; ?></td>
-                        <td><?php echo $movimentacao['localDestino']; ?></td>
-                        <td><?php 
-    $dataCadastro = $movimentacao['dataMovimentacao'];
-    echo date('d/m/Y H:i:s', strtotime($dataCadastro)); 
-    ?></td>
-                        <td><?php echo $movimentacao['descricaoMovimentacao']; ?></td>
+                    foreach ($movimentacoes as $movimentacao) {
+                        ?>
+                        <tr>
+                            <td><?php echo $movimentacao['ativo']; ?></td>
+                            <td><?php echo $movimentacao['tipoMovimentacao']; ?></td>
+                            <td><?php echo $movimentacao['quantidadeUso']; ?></td>
+                            <td><?php echo $movimentacao['quantidadeMov']; ?></td>
+                            <td><?php echo $movimentacao['quantidadeTotalAtivo']; ?></td>
+                            <td><?php echo $movimentacao['localOrigem']; ?></td>
+                            <td><?php echo $movimentacao['localDestino']; ?></td>
+                            <td><?php
+                            $dataCadastro = $movimentacao['dataMovimentacao'];
+                            echo date('d/m/Y H:i:s', strtotime($dataCadastro));
+                            ?></td>
+                            <td><?php echo $movimentacao['descricaoMovimentacao']; ?></td>
 
-                    </tr>
-
-
+                        </tr>
 
 
-                    <?php
-}
-?>
+
+
+                        <?php
+                    }
+                    ?>
         </div>
 
         </tbody>
@@ -100,10 +101,14 @@ $movimentacoes = $result->fetch_all(MYSQLI_ASSOC);
         <input type="hidden" id="idMovimentacao" value="">
 
     </div>
-    <?php 
-include_once('modal_movimentacao.php');
-?>
+    <?php
+    include_once('modal_movimentacao.php');
+    
+    ?>
     </div>
+    <?php 
+    include_once('contrape.php');
+    ?>
 </body>
 
 </html>

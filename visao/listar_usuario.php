@@ -2,8 +2,23 @@
 include_once('../controle/controle_session.php');
 include_once('../modelo/conexao.php');
 include_once('../controle/funcoes.php');
-$info_bd = busca_info_bd($conexao,'usuario');
+$sql = "
+SELECT 
+    idUsuario,  
+    nomeUsuario, 
+    nicknameUsuario,  
+    turmaCadastro,
+    idCargo,
+    (SELECT descricaoCargo FROM cargos u WHERE u.idCargo = a.idCargo) AS cargo
+FROM 
+    usuario a
+   ";
+
+$Cargos = busca_info_bd($conexao, 'cargos');
+$result = mysqli_query($conexao, $sql) or die(false);
+$users = $result->fetch_all(MYSQLI_ASSOC);
 include('menu.php');
+
 $admin =$_SESSION['admin'];
 
 
@@ -37,6 +52,7 @@ $admin =$_SESSION['admin'];
                     <th scope="col">ID</th>
                     <th scope="col">Nome</th>
                     <th scope="col">Usuário</th>
+                    <th scope="col">Cargo</th>
                     <th scope="col">Turma</th>
 
                     <?php if($admin== 'S'){ 
@@ -44,35 +60,30 @@ $admin =$_SESSION['admin'];
                     <th scope="col">Ações</th>
                     <?php
       }
-?>
+                    ?>
 
 
                 </tr>
             </thead>
             <tbody>
                 <?php
-    foreach($info_bd as $user){
+    foreach($users as $user){
         ?>
                 <tr>
                     <td>
                         <?php echo $user['idUsuario']; ?>
-
-
                     </td>
                     <td>
-
                         <?php echo $user['nomeUsuario']; ?>
-
                     </td>
                     <td>
-
                         <?php echo $user['nicknameUsuario']; ?>
-
                     </td>
                     <td>
-
+                        <?php echo $user['cargo'];?>
+                    </td>
+                    <td>
                         <?php echo $user['turmaCadastro']; ?>
-
                     </td>
                     <?php if($admin== 'S'){ 
         ?>
@@ -111,6 +122,9 @@ $admin =$_SESSION['admin'];
         </table>
 
     </div>
+    <?php 
+include('contrape.php');
+?>
 </body>
 
 </html>

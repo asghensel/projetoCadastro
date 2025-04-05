@@ -3,13 +3,33 @@
 include_once('../modelo/conexao.php');
 include_once('../controle/funcoes.php');
 $usuario_altera = $_GET['idUsuario'];
-$info_bd = busca_info_bd($conexao,'usuario','idUsuario',$usuario_altera);
 
-foreach($info_bd as $user){
+
+$sql = "
+SELECT 
+    idUsuario,  
+    nomeUsuario, 
+    nicknameUsuario,  
+    turmaCadastro,
+    idCargo,
+    (SELECT descricaoCargo FROM cargos u WHERE u.idCargo = a.idCargo) AS cargo
+FROM 
+    usuario a
+    WHERE
+    idUsuario = $usuario_altera";
+
+$Cargos = busca_info_bd($conexao, 'cargos');
+$result = mysqli_query($conexao, $sql) or die(false);
+$users = $result->fetch_all(MYSQLI_ASSOC);
+
+
+
+foreach($users as $user){
     $nome = $user['nomeUsuario']; 
     $turma = $user['turmaCadastro']; 
     $id_user = $user['idUsuario'];
-    
+    $cargo = $user['cargo'];
+    $idCargo = $user['idCargo'];
 }
 include_once('cabecalho.php');
 ?>
@@ -22,6 +42,9 @@ include_once('cabecalho.php');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/alterarUsuario.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     <title>Alterar</title>
 </head>
 
@@ -47,6 +70,21 @@ include_once('cabecalho.php');
                     <input type="text" class="form-control" id="turma" placeholder="Altere sua turma aqui" name="turma"
                         required value="<?php echo $turma ?>">
                 </div>
+                <div class="mb-2">
+                    <label for="turma" class="form-label">Cargo do Usuário</label>
+                   
+                        <select class="form-select" id="cargo" name="cargo" value="<?php echo $cargo ?>">
+                            
+                            <?php 
+                        foreach($Cargos as $Cargo){
+                            echo '<option value="'.$Cargo['idCargo'].'">'.$Cargo['descricaoCargo'].'</option>';
+                        }
+                                
+                            
+                            ?>
+                        </select>
+                </div>
+
 
                 <button type="submit" class="btn btn-primary">Salvar</button>
             </div>
@@ -54,6 +92,7 @@ include_once('cabecalho.php');
 
 
     </div>
+  
 </body>
 
 </html>

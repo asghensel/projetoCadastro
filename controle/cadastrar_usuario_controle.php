@@ -8,6 +8,7 @@ $senha = $_POST['senha'];
 $usuario = $_POST['usuario'];
 
 
+
 $crip = base64_encode($senha);
 
 
@@ -16,8 +17,9 @@ $query= "
                     nomeUsuario,
                     nicknameUsuario,
                     senhaUsuario,
-                    turmaCadastro,  
+                    turmaCadastro,
                     dataCadastro,
+                    idCargo,
                     admin
                     )values(
                     '".$nome."',
@@ -25,6 +27,7 @@ $query= "
                     '".$crip."',
                     '".$turma."',
                     NOW(),
+                    '4',
                     'N'
                                 )
 

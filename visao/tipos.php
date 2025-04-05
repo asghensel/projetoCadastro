@@ -3,6 +3,7 @@ include_once('../controle/controle_session.php');
 include_once('../controle/funcoes.php');
 include('../modelo/conexao.php');
 $title="Tipos";
+
 include('menu.php');
 include_once('cabecalho.php');
 $sql = "
@@ -107,6 +108,10 @@ $tipos = $result->fetch_all(MYSQLI_ASSOC);
 }
 ?>
         </div>
+          
+
+
+
 
         </tbody>
         </table>
@@ -114,8 +119,14 @@ $tipos = $result->fetch_all(MYSQLI_ASSOC);
         <?php
         include_once('modal_tipos.php');
         ?>
+    
     </div>
+</div>
 
+
+    <?php 
+    include_once('contrape.php');
+    ?>
 </body>
 
 </html>

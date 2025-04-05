@@ -1,0 +1,105 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    
+}
+
+
+.main-content {
+    flex: 1;
+}
+
+/* Estilização do rodapé */
+footer {
+   
+    background-color: #004A8D;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    width: 100%;
+    position: relative;
+    bottom: 0;
+    margin-top: 2em;
+}
+
+/* Container do rodapé */
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: auto;
+    padding: 10px;
+}
+
+/* Estilos da Logo */
+.footer-logo img {
+    max-width: 120px;
+    filter: brightness(0) invert(1); /* Garante que fique branco em fundo escuro */
+}
+
+/* Informações de contato */
+.footer-info {
+    text-align: left;
+    max-width: 350px;
+}
+
+.footer-info p {
+    margin: 5px 0;
+    font-size: 15px;
+}
+
+/* Estilização dos ícones */
+.footer-info i {
+    color: #F7941D;
+    margin-right: 8px;
+}
+
+/* Redes sociais */
+.footer-social {
+    display: flex;
+    gap: 15px;
+}
+
+.footer-social .social-icon {
+    color: white;
+    font-size: 24px;
+    transition: transform 0.3s, color 0.3s;
+}
+
+.footer-social .social-icon:hover {
+    transform: scale(1.2);
+    color: #F7941D;
+}
+
+/* Direitos autorais */
+.footer-copy {
+    margin-top: 10px;
+    font-size: 14px;
+    opacity: 0.7;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-info {
+        text-align: center;
+        margin: 10px 0;
+    }
+}

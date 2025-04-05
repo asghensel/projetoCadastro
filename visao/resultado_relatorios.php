@@ -155,6 +155,7 @@ $sql="
     </div>
 
     </div>
+    <?php include('contrape.php'); ?>
 </body>
 
 </html>

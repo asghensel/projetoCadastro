@@ -29,7 +29,7 @@ foreach ($movimentacoes as $movimentacao){
     
     if ($quantidade_disponivel < $movimentacao['quantidadeMinima']){
  $termo_busca = $movimentacao['descricaoAtivo'].$movimentacao['descr_marca'];
-            $resultado = busca_prod_ml($termo_busca);
+            $resultado .= busca_prod_ml($termo_busca);
     }
    
 }

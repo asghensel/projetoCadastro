@@ -1,0 +1,78 @@
+body{
+    margin: 0;
+}
+.container{
+    width: 40% !important;
+    max-width: 90% !important;
+    border: solid 2px transparent;
+    border-radius: 10px; /* Deixei um pouco arredondado, mas pode ser 0 para bordas retas */
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5); /* Ajustei a sombra */
+    background-color: #fff; /* Cor de fundo para destaque */
+    padding: 0;
+}
+
+.cabecalho{
+    height: 20%;
+    width: 100%;
+    margin: 0 0 30px 0;
+    background-color: #004A8D;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+}
+
+
+
+.check{
+    background-color: transparent;
+}
+.input-group-text{
+    background-color: transparent;
+    border: none;
+    
+}
+
+.mb-3{
+    background-color: rgb(255, 255, 255);
+    border: solid 2px #dee2e6;
+    border-radius: 10px;
+    height: 40px;
+    padding-top: 5px;
+    width: 40%;
+    margin-left: 30%;
+}
+
+.linha_opcao{
+    margin-bottom: 15px;
+}
+
+
+.titulo{
+    text-align: center;
+    margin: 10px;
+}
+#cargo{
+    margin-bottom: 20px;
+    width: 80%;
+    margin: auto;
+    margin-bottom: 30px; ;
+}
+
+.salvarAcesso {
+    width: 90%;
+    margin-top: 20px;
+    margin-left: 40px;
+    font-size: 18px;
+    padding: 10px;
+    background: #004A8D;
+    border: none;
+    color: #ffffff;
+    font-weight: bold;
+    border-radius: 10px;
+    transition: 0.3s;
+    margin-bottom: 20px;
+}
+.salvarAcesso:hover {
+    background: #00ff2a;
+    
+} 

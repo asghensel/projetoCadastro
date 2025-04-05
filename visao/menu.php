@@ -1,7 +1,22 @@
 <?php
-
 include_once('../controle/controle_session.php');
 include_once('cabecalho.php');
+include_once('../modelo/conexao.php');
+$cargo = $_SESSION['idCargo'];
+
+$sqlMenu = "SELECT idOpcao,
+                descricaoOpcao, 
+                urlOpcao
+            FROM
+             opcoes_menu O
+            WHERE
+                nivelOpcao = 1 
+                AND statusOpcao ='S' 
+                AND idOpcao IN(SELECT idOpcao FROM acesso A WHERE A.idOpcao = O.idOpcao AND statusAcesso = 'S' AND idCargo= $cargo)                                  
+                ";
+$result = mysqli_query($conexao, $sqlMenu) or die(false);
+$acessos_menu = $result->fetch_all(MYSQLI_ASSOC);
+$admin = $_SESSION['admin'];
 ?>
 
 
@@ -12,59 +27,99 @@ include_once('cabecalho.php');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Navbar com Submenu</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    
     <link rel="stylesheet" href="../css/menu.css">
     <script src="../js/menu.js"></script>
 </head>
 
 <body>
-    <nav>
-        <ul>
-            <div class="navbar">
-                <li><img src="../midia/senac_logo_branco.png"></li>
-                <li><a href="telaInicial.php">
-                        <div class="navbar-item" data-menu="menu1">Início</div>
-                    </a></li>
-                <li>
-                    <div class="navbar-item" data-menu="menu2">
-                        Usuarios
-                        <div class="submenu">
-                            <a href="../visao/cadastrarusuario.php">Cadastrar</a>
-                            <a href="../visao/listar_usuario.php">Listagem</a>
-                        </div>
-                    </div>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary ">
+        <div class="container-fluid">
+            <li><img src="../midia/senac_logo_branco.png"></li>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <li class="nav-item">
+                    <a class="nav-link" href="telainicial.php">Início</a>
                 </li>
-                <li>
-                    <div class="navbar-item" data-menu="menu3">
-                        Cadastrar
-                        <div class="submenu">
-                            <a href="../visao/ativos.php">Ativos</a>
-                            <a href="../visao/marcas.php">Marcas</a>
-                            <a href="../visao/tipos.php">Tipos</a>
-                        </div>
+                <ul class="navbar-nav">
+                    <?php foreach ($acessos_menu as $acessos) {
 
-                    </div>
-                </li>
-                <li>
-                    <div class="navbar-item" data-menu="menu4">
-                        Atividade
-                        <div class="submenu">
-                            <a href="../visao/movimentacao_ativo.php">Movimentações</a>
-                            <a href="../visao/relatorios.php">Relatórios</a>
-                        </div>
+                        $sqlSubMenu = "SELECT idOpcao,
+                                    descricaoOpcao,
+                                    urlOpcao
+                    FROM
+                     opcoes_menu O
+                    WHERE
+                        idSuperior = '" . $acessos['idOpcao'] . "' 
+                        AND statusOpcao ='S' AND nivelOpcao = 2
+                        AND idOpcao IN(SELECT idOpcao FROM acesso A WHERE A.idOpcao = O.idOpcao AND statusAcesso = 'S' AND idCargo= $cargo)                                  
+                        ";
+                        $resultSubMenu = mysqli_query($conexao, $sqlSubMenu) or die(false);
+                        $acessos_submenu = $resultSubMenu->fetch_all(MYSQLI_ASSOC);
+                        if (count($acessos_submenu) > 0) {
+                            ?>
 
-                    </div>
-                </li>
-                <li id="logout">
-                    <div class="navbar-item">
-                        <a class="logout-link" onclick="logoutUser()">
-                            <i class="fas fa-sign-out-alt"></i> Logout
-                        </a>
-                    </div>
-                </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    <?php echo $acessos['descricaoOpcao']; ?>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <?php
+                                    foreach ($acessos_submenu as $subMenu) {
+                                        echo '<li><a class="dropdown-item" href="' . $subMenu['urlOpcao'] . '">' . $subMenu['descricaoOpcao'] . '</a></li>';
+                                    }
+                                    ?>
+                                </ul>
+                            </li>
+                            <?php
+                        } else {
+                            echo '<li class="nav-item">
+                                        <a class="nav-link" href="' . $acessos['urlOpcao'] . '">' . $acessos['descricaoOpcao'] . '</a>
+                                </li>';
+                        }
+
+                    }
+                    ?>
+
+
             </div>
-        </ul>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ms-auto">
+                
+            <?php if ($admin == 'S') {
+                        ?>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Admin
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="opcoes.php">Opção</a></li>
+                                <li><a class="dropdown-item" href="cargos.php">Níveis</a></li>
+                                <li><a class="dropdown-item" href="acessos.php">Acessos</a></li>
+                            </ul>
+                        </li>
+
+                    </ul>
+
+                    <?php
+                    }
+                    ?>
+
+                <li class="nav-item" id="logout">
+                    <a class="logout-link nav-link" onclick="logoutUser()">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </a>
+                </li>
+            </ul>
+            </div>
+        </div>
     </nav>
+    
 </body>
 
 </html>

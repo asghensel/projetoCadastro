@@ -5,13 +5,16 @@ include('../modelo/conexao.php');
 $nome = $_POST['nome'];
 $turma = $_POST['turma'];
 $id = $_POST['id'];
+$cargo = $_POST['cargo'];
+
 
 $query= "
         update 
             usuario 
         set 
             nomeUsuario = '".$nome."',
-            turmaCadastro= '".$turma."'
+            turmaCadastro= '".$turma."',
+            idCargo='".$cargo."'
         where
              idUsuario ='".$id."'   
         ";

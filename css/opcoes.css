@@ -1,0 +1,78 @@
+body {
+    background-color: #f8f9fa;
+}
+.container {
+    margin-top: 30px;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+h1 {
+    color: #004A8D;
+}
+.btn-primary {
+    display: block;
+    margin:  auto ;
+    padding: 5px 10px;
+    background-color: #004A8D;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 28px;
+    transition: background-color 0.3s ease;
+}
+.btn-primary:hover {
+    background-color:#004A8D;
+    border-color: #004A8D;
+}
+.table {
+    
+    font-size: 1.5em;
+}
+.table th {
+    background-color: #004A8D;
+    color: #fff;
+}
+.table td, .table th {
+    text-align: center;
+}
+.acoes {
+    display: flex;
+    justify-content: center;
+}
+.muda_status i, .edit i {
+    cursor: pointer;
+    
+}
+.muda_status i:hover {
+    color: #007bff;
+}
+.edit i:hover {
+    color: #28a745;
+}
+
+.acoes i {
+    font-size: 2em; /* Aumenta o tamanho dos ícones */
+    cursor: pointer;
+    color: #F7941D;
+    transition: color 0.3s ease;
+}
+
+.trash i:hover{
+    color: #ff0000;
+}
+
+
+.edit i:hover {
+    color: #018513; /* Amarelo para editar */
+}
+
+.muda_status .inativo i {
+    color: #28a745; /* Verde para ativo */
+}
+
+.muda_status .ativo i {
+    color: #dc3545; /* Vermelho para inativo */
+}

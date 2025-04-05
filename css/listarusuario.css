@@ -35,7 +35,7 @@ h1 {
 }
 
 .table th {
-    background-color: #007bff;
+    background-color: #004A8D;
     color: #fff;
     font-weight: bold;
 }
@@ -52,7 +52,7 @@ h1 {
     display: block;
     margin: 20px auto;
     padding: 15px 20px;
-    background-color: #007bff;
+    background-color: #004A8D;
     color: #fff;
     border: none;
     border-radius: 8px;
@@ -62,7 +62,7 @@ h1 {
 }
 
 .btn-primary:hover {
-    background-color: #0056b3;
+    background-color: #004A8D;
 }
 
 .acoes {
@@ -74,22 +74,17 @@ h1 {
 .acoes i {
     font-size: 2em; /* Aumenta o tamanho dos ícones */
     cursor: pointer;
-    color: #555;
+    color: #F7941D;
     transition: color 0.3s ease;
 }
 
-.acoes i:hover {
-    color: #007bff;
+
+
+.trash i:hover{
+    color: #ff0000;
 }
 
-.muda_status .ativo i {
-    color: #28a745; /* Verde para ativo */
-}
 
-.muda_status .inativo i {
-    color: #dc3545; /* Vermelho para inativo */
-}
-
-.edit i {
-    color: #ffc107; /* Amarelo para editar */
+.edit i:hover {
+    color: #018513; /* Amarelo para editar */
 }

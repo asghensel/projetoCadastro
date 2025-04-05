@@ -1,93 +1,86 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: #f5f7fa;
     margin: 0;
+    padding: 0;
+    text-align: center;
 }
 
 .container {
-    max-width: 800px;
-    margin: auto;
-    background: #fff;
+    max-width: 1200px;
+    margin: 50px auto;
     padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-h1 {
-    text-align: center;
-    color: #333;
-}
-
-form {
-    display: flex;
-    justify-content: center;
+.container h1 {
     margin-bottom: 20px;
-}
-
-input[type="text"] {
-    padding: 10px;
-    width: 70%;
-    border: 1px solid #ccc;
-    border-radius: 4px 0 0 4px;
-}
-
-button {
-    padding: 10px 20px;
-    border: none;
-    background-color: #007bff;
-    color: white;
-    cursor: pointer;
-    border-radius: 0 4px 4px 0;
-}
-
-button:hover {
-    background-color: #0056b3;
+    color: #333;
 }
 
 .produto {
-    display: flex;
-    align-items: center;
-    border: 1px solid #ddd;
-    padding: 15px;
-    margin-bottom: 15px;
-    border-radius: 5px;
-    background-color: #fafafa;
+    display: inline-block;
+    width: calc(33% - 30px);
+    margin: 15px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s;
+    text-align: left;
+}
+
+.produto:hover {
+    transform: scale(1.05);
 }
 
 .produto img {
-    width: 180px;
+    width: 100%;
     height: auto;
-    border-radius: 4px;
-    margin-right: 20px;
-    object-fit: cover;
-    flex-shrink: 0;
-}
-
-.produto-content {
-    flex: 1;
+    border-bottom: 1px solid #f0f0f0;
 }
 
 .produto h3 {
-    margin: 0;
     font-size: 18px;
+    margin: 15px;
     color: #333;
+    height: 50px;
+    overflow: hidden;
 }
 
 .produto p {
-    margin: 5px 0;
-    color: #666;
+    font-size: 20px;
+    margin: 15px;
+    color: #0066cc;
+    font-weight: bold;
 }
 
 .produto a {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 8px 12px;
-    background-color: #28a745;
-    color: white;
+    display: block;
+    text-align: center;
+    background: #007bff;
+    color: #fff;
     text-decoration: none;
-    border-radius: 4px;
+    padding: 10px;
+    border-radius: 0 0 10px 10px;
+    transition: background 0.3s;
 }
 
 .produto a:hover {
-    background-color: #218838;
+    background: #0056b3;
+}
+
+@media (max-width: 768px) {
+    .produto {
+        width: calc(50% - 30px);
+    }
+}
+
+@media (max-width: 480px) {
+    .produto {
+        width: 100%;
+        margin: 15px 0;
+    }
 }

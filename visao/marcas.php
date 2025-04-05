@@ -3,6 +3,7 @@ include_once('../controle/controle_session.php');
 include_once('../controle/funcoes.php');
 include('../modelo/conexao.php');
 $title="Marcas";
+
 include('menu.php');
 include_once('cabecalho.php');
 $sql = "
@@ -32,7 +33,7 @@ $marcas = $result->fetch_all(MYSQLI_ASSOC);
     <title>Cadastro_Marcas</title>
 </head>
 
-<body>
+<div>
     <div class="container">
         <div class="d-flex">
             <button type="button" class="btn btn-primary cadastrar" data-bs-toggle="modal"
@@ -113,8 +114,13 @@ $marcas = $result->fetch_all(MYSQLI_ASSOC);
         <?php
         include_once('modal_marcas.php');
         ?>
+        
     </div>
 
+</div>
+    
 </body>
-
+<?php 
+    include_once('contrape.php');
+    ?>
 </html>

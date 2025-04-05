@@ -1,5 +1,5 @@
 
- const navbarItems = document.querySelectorAll('.navbar-item');
+/* const navbarItems = document.querySelectorAll('.navbar-item');
 
 
  navbarItems.forEach(item => {
@@ -14,7 +14,7 @@
      item.addEventListener('mouseout', () => {
          submenu.style.display = 'none';
      });
- });
+ });*/
 
 
         function logoutUser() {

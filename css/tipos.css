@@ -9,30 +9,31 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 h1 {
-    color: #007bff;
+    color: #004A8D;
 }
 .btn-primary {
     display: block;
     margin:  auto ;
     padding: 5px 10px;
-    background-color: #007bff;
+    background-color:#004A8D;
     color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 28px;
     transition: background-color 0.3s ease;
+
 }
 .btn-primary:hover {
-    background-color: #0056b3;
-    border-color: #0056b3;
+    background-color:#004A8D;
+    border-color: #004A8D;
 }
 .table {
     
     font-size: 1.5em;
 }
 .table th {
-    background-color: #007bff;
+    background-color:#004A8D;
     color: #fff;
 }
 .table td, .table th {
@@ -46,22 +47,20 @@ h1 {
     cursor: pointer;
     
 }
-.muda_status i:hover {
-    color: #007bff;
-}
-.edit i:hover {
-    color: #28a745;
-}
+
+
 
 .acoes i {
-    font-size: 1.5em;
+    font-size: 2em; /* Aumenta o tamanho dos ícones */
     cursor: pointer;
-    color: #555;
+    color: #F7941D;
     transition: color 0.3s ease;
 }
-
-.acoes i:hover {
-    color: #007bff;
+.trash i:hover{
+    color: #ff0000;
+}
+.edit i:hover {
+    color: #018513; /* Amarelo para editar */
 }
 
 .muda_status .inativo i {
@@ -71,9 +70,5 @@ h1 {
 .muda_status .ativo i {
     color: #dc3545; /* Vermelho para inativo */
 }
-
-.edit i {
-    color: #ffc107; 
-}       
 
 
