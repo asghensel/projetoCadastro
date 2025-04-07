@@ -44,10 +44,10 @@ $marcas = $result->fetch_all(MYSQLI_ASSOC);
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">ID</th>
+                        <th class="ocultar" scope="col">ID</th>
                         <th scope="col">Descrição</th>
-                        <th scope="col">Data Cadastro</th>
-                        <th scope="col">Usuario</th>
+                        <th class="ocultar" scope="col">Data Cadastro</th>
+                        <th class="ocultar" scope="col">Usuario</th>
                         <th scope="col">Ações</th>
 
                     </tr>
@@ -57,21 +57,10 @@ $marcas = $result->fetch_all(MYSQLI_ASSOC);
     foreach($marcas as $marca){
         ?>
                     <tr>
-                        <td>
-
-                            <?php echo $marca['idMarca']; ?>
-
-                        </td>
-                        <td>
-
-                            <?php echo $marca['descricaoMarca']; ?>
-
-                        </td>
-                        <td><?php 
-    $dataCadastro = $marca['dataCadastroMarca'];
-    echo date('d/m/Y H:i:s', strtotime($dataCadastro)); 
-    ?></td>
-                        <td><?php echo $marca['usuario']; ?></td>
+                        <td class="ocultar"> <?php echo $marca['idMarca']; ?> </td>
+                        <td><?php echo $marca['descricaoMarca']; ?></td>
+                        <td class="ocultar"><?php $dataCadastro = $marca['dataCadastroMarca'];echo date('d/m/Y H:i:s', strtotime($dataCadastro)); ?></td>
+                        <td class="ocultar"><?php echo $marca['usuario']; ?></td>
                         <td>
                             <div class="acoes" style="display: flex; justify-content: space-between;">
                                 <div class="muda_status">

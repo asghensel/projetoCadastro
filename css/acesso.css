@@ -76,3 +76,47 @@ body{
     background: #00ff2a;
     
 } 
+@media (max-width: 772px) {
+    .container{
+        width:  90% !important;
+    }
+
+    .mb-3{
+        width: 80%!important;
+        margin: auto;
+    }
+    .salvarAcesso{
+        margin-left: 15px;
+    }
+   }
+ 
+   @media (max-width: 540px) {
+    .container{
+        width:  90% !important;
+    }
+
+    .mb-3{
+        width: 80%!important;
+        margin: auto;
+    }
+    .salvarAcesso{
+        margin-left: 15px;
+    }
+    
+    }
+ 
+ 
+   @media (max-width: 480px) {
+    
+    .container{
+        width:  90% !important;
+    }
+
+    .mb-3{
+        width: 80%!important;
+        margin: auto;
+    }
+    .salvarAcesso{
+        margin-left: 15px;
+    }
+    }

@@ -15,6 +15,10 @@ h1 {
     color: #007bff;
 }
 
+.info{
+    display: none;
+}
+
 .btn-primary {
     display: block;
     margin: auto;
@@ -65,3 +69,167 @@ h1 {
 }
 
 
+@media (max-width: 772px) {
+
+    .btn-primary {
+        display: block;
+        margin: auto;
+        width: 300px;
+        margin-bottom: 10px!important;
+        padding: 10px 20px;
+        background-color: #004A8D;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 28px;
+        transition: background-color 0.3s ease;
+    }
+
+    .ocultar{
+     display: none;
+    }
+    .acoes{
+     margin-left: 50px;
+    }
+
+    .navbar-toggler-icon{
+        color: white;
+    }
+
+    .navbar-toggler{
+        border: solid 2px white;
+      }
+
+    .info{
+        display: grid;
+     }
+
+   td .acoes{
+     margin-top: 5px;
+    font-size: 36px;
+   }
+
+   th, td{
+    font-size: 32px;
+    min-width: 100px;
+   }
+   }
+ 
+
+
+
+   @media (max-width: 540px) {
+
+    .btn-primary {
+        display: block;
+        margin: auto;
+        width: 250px;
+        margin-bottom: 10px!important;
+        padding: 10px 20px;
+        background-color: #004A8D;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 24px;
+        transition: background-color 0.3s ease;
+    }
+
+     .ocultar{
+      display: none;
+     }
+
+     .info{
+        display: grid;
+     }
+     .acoes{
+      margin-left: 50px;
+      
+     }
+
+     .navbar-toggler-icon{
+        color: white!important;
+        background-color: white;    
+    }
+
+     td .acoes{
+        margin-top: 5px;
+        margin-right: 10px;
+        font-size: 32px!important;
+      }
+      
+      .navbar-toggler{
+        border: solid 2px white;
+      }
+   
+ 
+      th, td{
+        font-size: 24px;
+        min-width: 100px;
+       }
+    .form-busca input[type="text"]{
+     width: 100px;
+     font-size: 14px;
+    }
+    
+    }
+ 
+ 
+   @media (max-width: 480px) {
+
+
+    .btn-primary {
+        display: block;
+        margin: auto;
+        width: 200px;
+        margin-bottom: 10px!important;
+        padding: 10px 20px;
+        background-color: #004A8D;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 20px;
+        transition: background-color 0.3s ease;
+    }
+
+     .ocultar{
+      display: none;
+     }
+     .acoes{
+      margin-left: 50px;
+       
+     }
+
+     span.navbar-toggler-icon{
+        color: white!important;
+        background-color: white;
+    }
+
+    td .acoes{
+      margin-top: 5px;
+      margin-right: 10px;
+      font-size: 28px!important;
+    }
+ 
+    .navbar-toggler{
+        border: solid 2px white;
+      }
+
+    .info{
+        text-align: center;
+        display: grid;
+     }
+ 
+    th, td{
+     font-size: 20px;
+     min-width: 100px;
+
+    }
+    .form-busca input[type="text"]{
+     width: 100px;
+     font-size: 14px;
+    }
+    
+    }

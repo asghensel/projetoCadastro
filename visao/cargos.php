@@ -44,10 +44,10 @@ $Cargos = $result->fetch_all(MYSQLI_ASSOC);
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">ID</th>
+                        <th class="ocultar"  scope="col">ID</th>
                         <th scope="col">Descrição</th>
-                        <th scope="col">Data Cadastro</th>
-                        <th scope="col">Usuario</th>
+                        <th class="ocultar" scope="col">Data Cadastro</th>
+                        <th class="ocultar" scope="col">Usuario</th>
                         <th scope="col">Ações</th>
 
                     </tr>
@@ -57,7 +57,7 @@ $Cargos = $result->fetch_all(MYSQLI_ASSOC);
     foreach($Cargos as $Cargo){
         ?>
                     <tr>
-                        <td>
+                        <td class="ocultar">
 
                             <?php echo $Cargo['idCargo']; ?>
 
@@ -67,13 +67,13 @@ $Cargos = $result->fetch_all(MYSQLI_ASSOC);
                             <?php echo $Cargo['descricaoCargo']; ?>
 
                         </td>
-                        <td><?php 
+                        <td class="ocultar"><?php 
     $dataCadastro = $Cargo['dataCadastroCargo'];
     echo date('d/m/Y H:i:s', strtotime($dataCadastro)); 
     ?></td>
-                        <td><?php echo $Cargo['usuario']; ?></td>
+                        <td class="ocultar"><?php echo $Cargo['usuario']; ?></td>
                         <td>
-                            <div class="acoes" style="display: flex; justify-content: space-between;">
+                            <div class="acoes" >
                                 <div class="muda_status">
                                     <?php
             if($Cargo['statusCargo']=="S"){
@@ -118,7 +118,9 @@ $Cargos = $result->fetch_all(MYSQLI_ASSOC);
     </div>
 
 </div>
-    
+<?php 
+    include_once('contrape.php');
+    ?>
 </body>
 
 </html>

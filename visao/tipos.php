@@ -44,10 +44,10 @@ $tipos = $result->fetch_all(MYSQLI_ASSOC);
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">ID</th>
+                        <th class="ocultar" scope="col">ID</th>
                         <th scope="col">Descrição</th>
-                        <th scope="col">Data Cadastro</th>
-                        <th scope="col">Usuario</th>
+                        <th class="ocultar" scope="col">Data Cadastro</th>
+                        <th class="ocultar" scope="col">Usuario</th>
                         <th scope="col">Ações</th>
 
                     </tr>
@@ -57,21 +57,10 @@ $tipos = $result->fetch_all(MYSQLI_ASSOC);
     foreach($tipos as $tipo){
         ?>
                     <tr>
-                        <td>
-
-                            <?php echo $tipo['idTipo']; ?>
-
-                        </td>
-                        <td>
-
-                            <?php echo $tipo['descricaoTipo']; ?>
-
-                        </td>
-                        <td><?php 
-    $dataCadastro = $tipo['dataCadastroTipo'];
-    echo date('d/m/Y H:i:s', strtotime($dataCadastro)); 
-    ?></td>
-                        <td><?php echo $tipo['usuario']; ?></td>
+                        <td class="ocultar"><?php echo $tipo['idTipo']; ?></td>
+                        <td><?php echo $tipo['descricaoTipo']; ?></td>
+                        <td class="ocultar"><?php $dataCadastro = $tipo['dataCadastroTipo']; echo date('d/m/Y H:i:s', strtotime($dataCadastro)); ?></td>
+                        <td class="ocultar"><?php echo $tipo['usuario']; ?></td>
                         <td>
                             <div class="acoes" style="display: flex; justify-content: space-between;">
 

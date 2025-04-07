@@ -38,7 +38,7 @@ $admin = $_SESSION['admin'];
             <li><img src="../midia/senac_logo_branco.png"></li>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
                 aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+                <span  class="fa-sharp fa-solid fa-bars" style="color: white;"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <li class="nav-item">

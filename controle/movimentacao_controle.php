@@ -9,6 +9,7 @@ error_reporting(E_ERROR);
 
 $ativo = $_POST['ativo'];
 $tipo_mov = $_POST['tipo'];
+$acao= $_POST['acao'];
 $quantidadeMov = $_POST['quantidade'];
 $origemMov = $_POST['origem'];
 $destinoMov = $_POST['destino'];
@@ -113,7 +114,28 @@ if($result){
     echo "erro";
 }
 
-
-
+if ($acao == 'get_info') {
+    $sql = "
+        SELECT 
+            idMovimentacao, 
+            descricaoMovimentacao, 
+            quantidadeMov, 
+            quantidadeUso,
+            statusMov, 
+            tipoMovimentacao,
+            localOrigem, 
+            localDestino,
+            dataMovimentacao, 
+            (SELECT descricaoAtivo FROM ativo m WHERE m.idAtivo = a.idAtivo) as ativo, 
+            (SELECT nomeUsuario FROM usuario u WHERE u.idUsuario = a.idUsuario) as usuario,
+            (SELECT quantidadeAtivo FROM ativo m WHERE m.idAtivo = a.idAtivo) as quantidadeTotalAtivo
+            FROM movimentacao a
+            Where idMovimentacao = $idMov
+            ";
+    $resultInfos = mysqli_query($conexao, $sql) or die(false);
+    $movimentacao = $resultInfos->fetch_all(MYSQLI_ASSOC);
+    echo json_encode($movimentacao);
+   
+}
 
 ?>

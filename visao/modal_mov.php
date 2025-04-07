@@ -16,37 +16,42 @@
 
         <div class="mb-3">
           <label class="col-form-label">Descrição do Ativo</label>
-          <div id="descricaoInfos" class="form-control bg-light"></div>
+          <div id="ativos" class="form-control bg-light"></div>
         </div>
 
         <div class="mb-3">
           <label class="col-form-label">Quantidade</label>
-          <div id="quantidadeInfos" class="form-control bg-light"></div>
+          <div id="tipo" class="form-control bg-light"></div>
         </div>
 
         <div class="mb-3">
-          <label class="col-form-label">Quantidade Mínima</label>
-          <div id="quantidadeMinInfos" class="form-control bg-light"></div>
+          <label class="col-form-label">Quantidade Uso</label>
+          <div id="uso" class="form-control bg-light"></div>
         </div>
 
         <div class="mb-3">
-          <label class="col-form-label">Tipo</label>
-          <div id="tipoInfos" class="form-control bg-light"></div>
+          <label class="col-form-label">Quantidade Antiga</label>
+          <div id="antigo" class="form-control bg-light"></div>
         </div>
 
         <div class="mb-3">
-          <label class="col-form-label">Marca</label>
-          <div id="marcaInfos" class="form-control bg-light"></div>
+          <label class="col-form-label">Quantidade Total</label>
+          <div id="total" class="form-control bg-light"></div>
         </div>
 
         <div class="mb-3">
-          <label class="col-form-label">Observação Ativo</label>
-          <div id="observacaoInfos" class="form-control bg-light"></div>
+          <label class="col-form-label">Local de Origem</label>
+          <div id="origems" class="form-control bg-light"></div>
         </div>
 
         <div class="mb-3">
-          <label class="col-form-label">Data Cadastro</label>
-          <div id="dataInfos" class="form-control bg-light"></div>
+          <label class="col-form-label">Local de Destino</label>
+          <div id="destinos" class="form-control bg-light"></div>
+        </div>
+
+        <div class="mb-3">
+          <label class="col-form-label">Data da Movimentação</label>
+          <div id="data" class="form-control bg-light"></div>
         </div>
 
         <div class="mb-3">
@@ -54,9 +59,9 @@
           <div id="usuarioInfos" class="form-control bg-light"></div>
         </div>
 
-        <div class="mb-3 div_previer" style="display:none;">
-          <label class="form-label">Preview imagem</label>
-          <img alt="Preview" id="previewImagemInfos" class="img-fluid rounded shadow-sm">
+        <div class="mb-3">
+          <label class="col-form-label">Descrição</label>
+          <div id="obs" class="form-control bg-light"></div>
         </div>
 
       </div>

@@ -7,11 +7,17 @@ $(document).ready(function () {
       let destino_mov = $("#destino").val();
       let descricao_mov = $("#descricao").val();
       let idMov = $("#idMovimentacao").val();
-  
+      
       
         if(ativo == "" || tipo_mov == "" || quantidade_mov == ""){
             alert('Preencha todos os campos obrigatórios');
             return false;
+        }
+
+        if(idMov== ""){
+          acao='inserir';
+        }else{
+          acao='update';
         }
 
       $.ajax({
@@ -24,6 +30,7 @@ $(document).ready(function () {
           origem:origem_mov,
           destino:destino_mov,
           descricao:descricao_mov,
+          acao:acao,
           idMov: idMov
         },
         success: function (result) {
@@ -73,6 +80,32 @@ $(document).ready(function () {
       
     });
   });
+
+  function infos(idMov) {
+    $('#idMovimentacao').val(idMov);
+    $.ajax({
+      type: 'POST',
+      url: "../controle/movimentacao_controle.php",
+      data: {
+        acao: 'get_info',
+        idMov: idMov
+      },
+      success: function (result) {
+        let retorno = JSON.parse(result);
+        $('#infos').click(); // abre o modal
+  
+        $("#ativos").html(retorno[0]['ativo']);
+        $("#tipo").html(retorno[0]['descricaoMovimentacao']);
+        $("#uso").html(retorno[0]['quantidadeUso']);
+        $("#antigo").html(retorno[0]['quantidadeMov']);
+        $("#total").html(retorno[0]['quantidadeTotalAtivo']);
+        $("#origems").html(retorno[0]['localOrigem']);
+        $("#destinos").html(retorno[0]['localDestino']);
+        $("#data").html(retorno[0]['dataMovimentacao']);
+        $("#obs").html(retorno[0]['descricaoMovimentacao']);
+      }
+    });
+  }
 
   function fechar_modal(){
     $("#ativo").val('');

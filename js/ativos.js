@@ -177,15 +177,17 @@ function infos(idAtivo) {
     },
     success: function (result) {
       let retorno = JSON.parse(result);
-      $('#infos').click();
-      $("#descricaoInfos").val(retorno[0]['descricaoAtivo']);
-      $("#quantidadeInfos").val(retorno[0]['quantidadeAtivo']);
-      $("#quantidadeMinInfos").val(retorno[0]['quantidadeMinima']);
-      $("#marcaInfos").val(retorno[0]['marca']);
-      $("#tipoInfos").val(retorno[0]['tipo']);
-      $("#observacaoInfos").val(retorno[0]['observacaoAtivo']);
-      $("#dataInfos").val(retorno[0]['dataCadastroAtivo']);
-      $("#usuarioInfos").val(retorno[0]['usuario']);
+      $('#infos').click(); // abre o modal
+
+      $("#descricaoInfos").html(retorno[0]['descricaoAtivo']);
+      $("#quantidadeInfos").html(retorno[0]['quantidadeAtivo']);
+      $("#quantidadeMinInfos").html(retorno[0]['quantidadeMinima']);
+      $("#marcaInfos").html(retorno[0]['marca']);
+      $("#tipoInfos").html(retorno[0]['tipo']);
+      $("#observacaoInfos").html(retorno[0]['observacaoAtivo']);
+      $("#dataInfos").html(retorno[0]['dataCadastroAtivo']);
+      $("#usuarioInfos").html(retorno[0]['usuario']);
+
       if (retorno[0]['urlImagem']) {
         $("#previewImagemInfos").attr("src", window.location.protocol + "//" + window.location.host + '/' + retorno[0]['urlImagem']);
         $(".div_previer").show();

@@ -49,11 +49,11 @@ $admin =$_SESSION['admin'];
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Nome</th>
+                    <th class="ocultar" scope="col">ID</th>
+                    <th class="ocultar" scope="col">Nome</th>
                     <th scope="col">Usuário</th>
-                    <th scope="col">Cargo</th>
-                    <th scope="col">Turma</th>
+                    <th class="ocultar" scope="col">Cargo</th>
+                    <th class="ocultar" scope="col">Turma</th>
 
                     <?php if($admin== 'S'){ 
         ?>
@@ -70,19 +70,19 @@ $admin =$_SESSION['admin'];
     foreach($users as $user){
         ?>
                 <tr>
-                    <td>
+                    <td class="ocultar">
                         <?php echo $user['idUsuario']; ?>
                     </td>
-                    <td>
+                    <td class="ocultar">
                         <?php echo $user['nomeUsuario']; ?>
                     </td>
                     <td>
                         <?php echo $user['nicknameUsuario']; ?>
                     </td>
-                    <td>
+                    <td  class="ocultar">
                         <?php echo $user['cargo'];?>
                     </td>
-                    <td>
+                    <td class="ocultar">
                         <?php echo $user['turmaCadastro']; ?>
                     </td>
                     <?php if($admin== 'S'){ 
@@ -90,7 +90,7 @@ $admin =$_SESSION['admin'];
 
 
                     <td>
-                        <div class="acoes" style="display: flex; justify-content: space-between;">
+                        <div class="acoes">
 
 
                             <div class="edit">
@@ -101,7 +101,7 @@ $admin =$_SESSION['admin'];
                             <div class="trash">
                                 <i class="bi bi-trash" onclick="deletar('<?php echo $user['idUsuario'] ?>')"></i>
                             </div>
-
+                        </div>
                     </td>
 
 

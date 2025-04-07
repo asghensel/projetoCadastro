@@ -56,12 +56,12 @@ $ativos = $result->fetch_all(MYSQLI_ASSOC);
                 <thead>
                     <tr>
                         <th scope="col">Descrição</th>
-                        <th class="ocultar" scope="col" class="ocultar">Quantidade</th>
+                        <th class="ocultar" scope="col">Quantidade</th>
                         <th class="ocultar" scope="col">Quantidade Disp</th>
                         <th class="ocultar" scope="col">Marca</th>
                         <th class="ocultar" scope="col">Tipo</th>
                         <th class="ocultar" scope="col">Imagem</th>
-                        <th class="ocultar" scope="col">Ações</th>
+                        <th scope="col">Ações</th>
                     </tr>
                 </thead>
                 <tbody>

@@ -88,3 +88,66 @@ h1 {
 .edit i:hover {
     color: #018513; /* Amarelo para editar */
 }
+
+
+@media (max-width: 772px) {
+    .ocultar{
+     display: none;
+    }
+    .acoes{
+     margin-left: 50px;
+    }
+   td .acoes{
+     margin-top: 5px;
+   }
+   }
+ 
+   @media (max-width: 540px) {
+     .ocultar{
+      display: none;
+     }
+     .acoes{
+      margin-left: 50px;
+      
+     }
+    td .acoes{
+      margin-top: 5px;
+      margin-right: 10px;
+    }
+ 
+   
+ 
+    th, td{
+     font-size: 14px;
+    
+     min-width: 100px;
+    }
+    .form-busca input[type="text"]{
+     width: 100px;
+     font-size: 14px;
+    }
+    
+    }
+ 
+ 
+   @media (max-width: 480px) {
+     .ocultar{
+      display: none;
+     }
+     
+    td .acoes {
+      margin-top: 5px;
+      font-size: 12px;
+    }
+ 
+   
+    th, td{
+    
+    text-align: center;
+     font-size: 14px;
+     max-width: 90px;
+     min-width: 90px;
+    }
+  
+    
+    }

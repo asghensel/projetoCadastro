@@ -119,9 +119,9 @@ foreach($opcoes as $row){
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">Nível</th>
+                        <th class="ocultar" scope="col">Nível</th>
                         <th scope="col">Descrição</th>
-                        <th scope="col">URL</th>
+                        <th class="ocultar" scope="col">URL</th>
 
                         <th scope="col">Ações</th>
 
@@ -147,17 +147,17 @@ foreach($opcoes as $row){
 
                         ?>
                         <tr>
-                            <td <?php if ($nivel == 1) { ?> style="text-align: left;" <?php } elseif ($nivel == 2) { ?> style="text-align: center;" <?php } elseif ($nivel == 3) { ?> style="text-align: right;" <?php } ?>><?php echo $descr_nivel ?></td>
+                            <td class="ocultar" <?php if ($nivel == 1) { ?> style="text-align: left;" <?php } elseif ($nivel == 2) { ?> style="text-align: center;" <?php } elseif ($nivel == 3) { ?> style="text-align: right;" <?php } ?>><?php echo $descr_nivel ?></td>
                             <td <?php
                             if ($nivel == 1) { ?> style="padding-left: 10px;" <?php } elseif ($nivel == 2) { ?> style="padding-left: 30px;" <?php } elseif ($nivel == 3) { ?> style="padding-left: 80px;" <?php } ?>>
 
                                 <?php echo $descricao ?>
 
                             </td>
-                            <td><?php echo $url; ?></td>
+                            <td class="ocultar"><?php echo $url; ?></td>
 
                             <td>
-                                <div class="acoes" style="display: flex; justify-content: space-between;">
+                                <div class="acoes" >
                                     <div class="muda_status">
                                         <?php
                                         if ($status== "S") {
@@ -202,7 +202,9 @@ foreach($opcoes as $row){
     </div>
 
 </div>
-
+<?php 
+    include_once('contrape.php');
+    ?>
 </body>
 
 </html>
