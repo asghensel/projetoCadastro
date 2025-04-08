@@ -82,7 +82,7 @@ h1 {
      display: none;
     }
     .acoes{
-     margin-left: 50px;
+     margin-left: 15px;
     }
    td .acoes{
      margin-top: 5px;
@@ -94,7 +94,7 @@ h1 {
       display: none;
      }
      .acoes{
-      margin-left: 50px;
+      margin-left: 10px;
       
      }
     td .acoes{
@@ -122,8 +122,8 @@ h1 {
       display: none;
      }
      .acoes{
-      margin-left: 50px;
-      
+      margin-left: 20px;
+    
      }
     td .acoes{
       margin-top: 5px;

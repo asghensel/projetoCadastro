@@ -9,16 +9,16 @@ $(document).ready(function () {
       let idMov = $("#idMovimentacao").val();
       
       
+      
+      
         if(ativo == "" || tipo_mov == "" || quantidade_mov == ""){
             alert('Preencha todos os campos obrigatórios');
             return false;
         }
 
-        if(idMov== ""){
-          acao='inserir';
-        }else{
-          acao='update';
-        }
+        
+          acao ='cadastrarMov';
+        
 
       $.ajax({
         type: 'POST',
@@ -103,6 +103,8 @@ $(document).ready(function () {
         $("#destinos").html(retorno[0]['localDestino']);
         $("#data").html(retorno[0]['dataMovimentacao']);
         $("#obs").html(retorno[0]['descricaoMovimentacao']);
+        $("#usuarioInfos").html(retorno[0]['usuario']);
+
       }
     });
   }

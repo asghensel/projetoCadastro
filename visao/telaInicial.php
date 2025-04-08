@@ -17,7 +17,7 @@ include_once('cabecalho.php');
         <nav class="navbar navbar-expand-lg bg-body-tertiary ">
             <div class="container-fluid">
                 <li><img src="../midia/senac_logo_branco.png"></li>
-                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <div  id="navbarNavDropdown">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item" id="logout">
                             <a class="logout-link" href="login_usuario.php">

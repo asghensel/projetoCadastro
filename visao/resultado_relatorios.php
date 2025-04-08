@@ -109,13 +109,14 @@ $sql="
                         <th scope="col">Ativo</th>
                         <th scope="col">Usuario</th>
                         <th scope="col">Tipo</th>
-                        <th scope="col">Qtd. Uso</th>
-                        <th scope="col">Qtd. Antiga</th>
-                        <th scope="col">Qtd. Total</th>
-                        <th scope="col">Loc.Origem</th>
-                        <th scope="col">Loc.Destino</th>
-                        <th scope="col">Data</th>
-                        <th scope="col">Descrição</th>
+                        <th class="ocultar" scope="col">Qtd. Uso</th>
+                        <th class="ocultar" scope="col">Qtd. Antiga</th>
+                        <th class="ocultar" scope="col">Qtd. Total</th>
+                        <th class="ocultar" scope="col">Loc.Origem</th>
+                        <th class="ocultar" scope="col">Loc.Destino</th>
+                        <th class="ocultar" scope="col">Data</th>
+                        <th class="ocultar" scope="col">Descrição</th>
+                        
                     </tr>
                 </thead>
                 <tbody>
@@ -126,17 +127,17 @@ $sql="
                         <td><?php echo $movimentacao['ativo']; ?></td>
                         <td><?php echo $movimentacao['usuario']; ?></td>
                         <td><?php echo $movimentacao['tipoMovimentacao']; ?></td>
-                        <td><?php echo $movimentacao['quantidadeUso']; ?></td>
-                        <td><?php echo $movimentacao['quantidadeMov']; ?></td>
-                        <td><?php echo $movimentacao['quantidadeTotalAtivo']; ?></td>
-                        <td><?php echo $movimentacao['localOrigem']; ?></td>
-                        <td><?php echo $movimentacao['localDestino']; ?></td>
-                        <td><?php 
+                        <td class="ocultar"><?php echo $movimentacao['quantidadeUso']; ?></td>
+                        <td class="ocultar"><?php echo $movimentacao['quantidadeMov']; ?></td>
+                        <td class="ocultar"><?php echo $movimentacao['quantidadeTotalAtivo']; ?></td>
+                        <td class="ocultar"><?php echo $movimentacao['localOrigem']; ?></td>
+                        <td class="ocultar"><?php echo $movimentacao['localDestino']; ?></td>
+                        <td class="ocultar"><?php 
     $dataCadastro = $movimentacao['dataMovimentacao'];
     echo date('d/m/Y H:i:s', strtotime($dataCadastro)); 
     ?></td>
-                        <td><?php echo $movimentacao['descricaoMovimentacao']; ?></td>
-
+                        <td class="ocultar"><?php echo $movimentacao['descricaoMovimentacao']; ?></td>
+                       
                     </tr>
 
 

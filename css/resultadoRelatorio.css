@@ -11,6 +11,10 @@ body {
     max-width: 1500px;
 }
 
+th{
+    background-color:#004A8D!important;
+}
+
 #tabelona{
     background: #ffffff;
     
@@ -20,7 +24,7 @@ body {
 }
 
 h1 {
-    color: #007bff;
+    color: #004A8D;
 }
 
 h2{
@@ -28,11 +32,16 @@ h2{
     font:bold;
 }
 
+.info{
+    display: none;
+}
+
+
 .btn-primary {
     display: block;
     margin: auto;
     padding: 10px 20px;
-    background-color: #007bff;
+    background-color: #004A8D;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -43,11 +52,12 @@ h2{
 }
 
 .btn-primary:hover {
-    background-color: #0056b3;
-    border-color: #0056b3;
+    background-color: #004A8D;
+    border-color: #004A8D;
 }
 
 button.btn-secondary{
+    background-color: #F7941D;
     font-size: 25px;
     height: 60px;
     width: 150px;
@@ -57,7 +67,7 @@ button.btn-secondary{
 
 
 .btn-secondary a {
-    background-color: #6c757d;
+    background-color: #F7941D;
     color: white;
     border: none;
     padding: 10px 15px;
@@ -125,7 +135,7 @@ div.dt-container .dt-paging .dt-paging-button.disabled.next{
 
 
 .dt-button{
-    background-color: #204369 !important;
+    background-color: #004A8D!important;
     color: white !important;
     border: solid 2px black !important;
     border-radius: 5px !important;
@@ -138,3 +148,201 @@ div.dt-container .dt-paging .dt-paging-button.disabled.next{
     border: black !important;
     border-radius: 5px !important;
 }
+
+
+@media (max-width: 772px) {
+
+    .btn-secondary {
+        display: block;
+        margin: auto;
+        width: 300px;
+        margin-bottom: 10px!important;
+        padding: 10px 20px;
+        background-color: #004A8D;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 28px;
+        transition: background-color 0.3s ease;
+    }
+
+    
+
+     .ocultar{
+      display: none;
+     }
+     .acoes{
+      margin-left: 50px;
+     }
+
+     h2 b{
+        font-size: 44px!important;
+     }
+
+     span.navbar-toggler-icon{
+        color: white!important;
+        background-color: white;
+    }
+
+    td .acoes{
+      margin-top: 5px;
+      margin-right: 10px;
+      font-size: 28px!important;
+    }
+ 
+    .navbar-toggler{
+        border: solid 2px white;
+      }
+
+    .info{
+        text-align: center;
+        display: grid;
+     }
+
+     
+table{
+    margin-left: 70px;
+}
+
+    .container{
+        padding: 10px;
+    }
+
+
+    th, td{
+     font-size: 20px;
+    min-width: 215px!important;
+        height: 90px;
+    }
+    .form-busca input[type="text"]{
+     width: 100px;
+     font-size: 14px;
+    }
+    
+   }
+ 
+
+
+
+   @media (max-width: 540px) {
+
+    .btn-secondary {
+        display: block;
+        margin: auto;
+        width: 250px;
+        margin-bottom: 10px!important;
+        padding: 10px 20px;
+        background-color: #004A8D;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 28px;
+        transition: background-color 0.3s ease;
+    }
+
+     .ocultar{
+      display: none;
+     }
+     .acoes{
+      margin-left: 50px;
+     }
+
+     h2 b{
+        font-size: 40px!important;
+     }
+
+     span.navbar-toggler-icon{
+        color: white!important;
+        background-color: white;
+    }
+
+    td .acoes{
+      margin-top: 5px;
+      margin-right: 10px;
+      font-size: 28px!important;
+    }
+ 
+    .navbar-toggler{
+        border: solid 2px white;
+      }
+
+    .info{
+        text-align: center;
+        display: grid;
+     }
+ 
+    th, td{
+     font-size: 14px;
+    min-width: 100px!important;
+        height: 90px;
+    }
+    .form-busca input[type="text"]{
+     width: 100px;
+     font-size: 14px;
+    }
+    
+    }
+ 
+ 
+   @media (max-width: 480px) {
+
+
+    .btn-secondary {
+        display: block;
+        margin: auto;
+        width: 200px;
+        margin-bottom: 10px!important;
+        padding: 10px 20px;
+        background-color: #004A8D;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 28px;
+        transition: background-color 0.3s ease;
+    }
+
+     .ocultar{
+      display: none;
+     }
+     .acoes{
+      margin-left: 50px;
+     }
+
+     h2 b{
+        font-size: 36px!important;
+     }
+
+     span.navbar-toggler-icon{
+        color: white!important;
+        background-color: white;
+    }
+
+    td .acoes{
+      margin-top: 5px;
+      margin-right: 10px;
+      font-size: 28px!important;
+    }
+ 
+    .navbar-toggler{
+        border: solid 2px white;
+      }
+
+    .info{
+        text-align: center;
+        display: grid;
+     }
+ 
+    th, td{
+     font-size: 14px;
+    min-width: 100px!important;
+        height: 90px;
+    }
+    .form-busca input[type="text"]{
+     width: 100px;
+     font-size: 14px;
+    }
+    
+    }

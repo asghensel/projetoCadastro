@@ -92,3 +92,61 @@ label {
     margin-bottom: 20px;
     width: 600px;
 }
+
+@media (max-width: 772px) {
+    .container{
+        width: 90%;
+        font-size: 14px;
+    }
+    .cabecalho{
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+    h2{
+        font-size: 1.5em;
+    }
+    #movimento{
+        width: 85%;
+    }
+    
+   }
+ 
+   @media (max-width: 540px) {
+    
+    .container{
+        width: 90%;
+        font-size: 14px;
+    }
+    .cabecalho{
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+    h2{
+        font-size: 1.5em;
+    }
+    #movimento{
+        width: 85%;
+    }
+    
+    }
+ 
+ 
+   @media (max-width: 480px) {
+    
+    
+    .container{
+        width: 90%;
+        font-size: 14px;
+    }
+    .cabecalho{
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+    h2{
+        font-size: 1.5em;
+    }
+    #movimento{
+        width: 85%;
+    }
+    
+}

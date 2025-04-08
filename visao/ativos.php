@@ -67,7 +67,7 @@ $ativos = $result->fetch_all(MYSQLI_ASSOC);
                 <tbody>
                     <?php foreach ($ativos as $ativo) { 
                         $alertaQntd = ($ativo['quantidadeAtivo'] - $ativo['quantidadeUso']);
-                    ?> ??
+                    ?> 
                     <tr>
                         <td ><?php echo $ativo['descricaoAtivo']; ?></td>
                         <td id="quantia" class="ocultar"><?php echo $ativo['quantidadeAtivo']; ?></td>

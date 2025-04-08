@@ -291,28 +291,6 @@ margin-left: 90px;
       margin-right: 1em;
   }
 
-  #logout{
-    align-items:center;
-  }
-  
-  #logout a {
-    color: #07cc00;
-    cursor: pointer;
-    align-items: center;
-    padding: 16px 24px;
-    border: 2px solid transparent;
-   display: grid!important;
-    border-radius: 8px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    font-size: 20px;
-  }
-  
-  #logout a:hover {
-    background-color: #07cc00!important;
-    color: #ffffff!important;
-    border-color: #07cc00!important;
-  }
-
   .cabecalho h1 {
       font-size: 1.5rem;
   }
@@ -373,12 +351,6 @@ margin-left: 90px;
   .box{
     max-width: 95%!important;
   }
-
-
-
-
-
-
 
   #logout a {
       font-size: 14px;

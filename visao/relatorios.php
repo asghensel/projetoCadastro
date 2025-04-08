@@ -40,7 +40,7 @@ $movimentacoes = busca_info_bd($conexao, 'movimentacao');
         <div class="cabecalho">
         <h2>Informe os filtros que deseja gerar o relatório</h2>
         </div>
-        <form action="resultado_relatorios.php" method="post" target="_blank">
+        <form action="resultado_relatorios.php" method="post" >
             <div class="grid-container">
 
 

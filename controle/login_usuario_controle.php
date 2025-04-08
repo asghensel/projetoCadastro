@@ -33,7 +33,7 @@ if($dados['quantidade']>0){
     else{
         $_SESSION['admin']='N';
     }
-    header('location:../visao/ativos.php');
+    header('location:../visao/telaInicial.php');
 }else{
     $_SESSION['login_ok']=false;
     unset($_SESSION['controle_login']);
